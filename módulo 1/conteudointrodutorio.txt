@@ -1,0 +1,185 @@
+1️⃣ O que é um dado? 📊
+Um dado é qualquer valor bruto que, sozinho, não possui significado completo.
+Ele pode ser um número, texto, data ou símbolo.
+🔹 Exemplos de dados:
+- 25
+- Lucas
+- 2026-01-09
+- Aprovado
+➡️ Quando os dados são organizados, analisados e contextualizados, eles se transformam em informação.
+
+2️⃣ O que são bancos de dados? 🗄️
+Um banco de dados é um conjunto organizado de dados, armazenados de forma estruturada para facilitar:
+✅ Armazenamento;
+✅ Consulta;
+✅ Atualização;
+✅ Segurança;
+✅ Análise.
+
+🔹 Exemplo:
+Cadastro de usuários;
+Sistema de vendas;
+Controle de estoque;
+Dados de alunos.
+
+📌 Bancos de dados substituem planilhas grandes e desorganizadas, oferecendo performance, segurança e confiabilidade.
+
+3️⃣ O que é SQL? 🧠💻
+SQL (Structured Query Language) é a linguagem padrão usada para:
+🔹 Criar bancos de dados;
+🔹 Criar tabelas;
+🔹 Inserir dados;
+🔹 Consultar informações;
+🔹 Atualizar e excluir dados.
+
+📌 SQL não é um banco de dados, é uma linguagem usada para conversar com bancos de dados.
+
+4️⃣ Sistemas de Gerenciamento de Banco de Dados (SGBD) ⚙️
+Um SGBD é o software responsável por gerenciar o banco de dados.
+
+Ele cuida de:
+Segurança 🔐
+Performance 🚀
+Controle de acesso 👥
+Integridade dos dados ✅
+
+🔹 Exemplos de SGBDs:
+MySQL;
+PostgreSQL;
+SQL Server;
+Oracle Database;
+SQLite.
+📌 Sem um SGBD, não existe banco de dados funcional.
+
+5️⃣ SQL vs MySQL ⚔️
+🚫 Erro comum: achar que SQL e MySQL são a mesma coisa. ❌
+✅ Diferença clara:
+
+🔹 SQL
+É uma linguagem;
+Padrão para manipular dados; e
+Usada em vários bancos.
+
+🐬 MySQL
+É um dos SGBD;
+Usa SQL como linguagem; e
+Desenvolvido para gerenciar bancos de dados.
+
+📌 Analogia:
+SQL é o idioma 🗣️
+MySQL é a pessoa que entende esse idioma 👤
+
+6️⃣ SQL, T-SQL, PL/SQL… do que se tratam? 🧩
+Esses são dialetos do SQL, ou seja, variações da linguagem SQL adaptadas para cada SGBD.
+
+🔹 SQL padrão
+Base comum para todos os bancos
+
+🔹 T-SQL (Transact-SQL)
+Usado no SQL Server
+Possui recursos extras como:
+Variáveis;
+Estruturas condicionais; e
+Procedures avançadas.
+
+🔹 PL/SQL (Procedural Language SQL)
+Usado no Oracle;
+Muito robusto; e
+Ideal para sistemas corporativos.
+
+📌 Cada SGBD implementa o SQL com pequenas diferenças.
+
+7️⃣ Profissões da área de Banco de Dados 👨‍💼👩‍💼
+
+🔹 DBA (Database Administrator) 🛡️
+Responsável por:
+Segurança do banco;
+Backup e restore;
+Performance; e
+Monitoramento.
+
+🔹 DB (Database / Desenvolvedor de Banco de Dados) 🧑‍💻
+Responsável por:
+Criar consultas SQL;
+Modelar tabelas; e
+Criar procedures e funções.
+
+🔹 AD (Administrador de Dados) 📐
+Responsável por:
+Governança de dados;
+Qualidade da informação; e
+Padronização e regras de dados.
+
+🔹 Especialista em Banco de Dados 🎯
+Atua com:
+Otimização avançada;
+Arquitetura de dados; e
+Grandes volumes de informação.
+
+8️⃣ COMO APLICATIVOS USAM DADOS 📱💾
+
+Aplicativos utilizam bancos de dados para armazenar 
+e manipular informações essenciais ao funcionamento do sistema.
+
+Exemplos de dados armazenados em apps:
+Cadastro de usuários 📥
+Login e senha 🔐
+Preferências 👍
+Histórico de ações 🔍
+Pedidos 📪
+Pagamentos 💵
+
+Fluxo básico de uso de dados em um aplicativo:
+
+O usuário interage com a interface (front-end)
+Os dados são enviados para o servidor (back-end)
+O back-end aplica regras de negócio
+O banco de dados armazena, consulta ou atualiza informações
+
+Exemplo prático:
+Um aplicativo de delivery possui tabelas para usuários, pedidos, produtos, pagamentos e status de entrega.
+
+Principais comandos SQL usados na manipulação de dados:
+INSERT para inserir dados
+SELECT para consultar dados
+UPDATE para atualizar informações
+DELETE para remover registros
+
+A correta manipulação dos dados permite:
+Personalização da experiência do usuário
+Geração de relatórios
+Tomada de decisões estratégicas
+Crescimento e escalabilidade do sistema
+
+------------------------------------------------------------------------
+
+📈📀 "Dados são o novo pretróleo."
+
+📌 Resumo do Módulo Introdutório ✨
+
+✅ O que são dados:
+Valores brutos (números, textos, datas) que, sozinhos, não possuem significado completo.
+
+✅ O que são bancos de dados:
+Estruturas organizadas para armazenar, gerenciar e recuperar dados com segurança e eficiência.
+
+✅ O papel do SQL:
+Linguagem padrão para criar, consultar, atualizar e excluir dados em bancos de dados.
+
+✅ O que é um SGBD:
+Software que gerencia o banco de dados, controlando acesso, integridade, segurança e desempenho.
+
+✅ Diferença entre SQL e MySQL
+SQL é a linguagem.
+MySQL é um SGBD que utiliza SQL.
+
+✅ Dialetos do SQL:
+Variações do SQL conforme o SGBD, como T-SQL, PL/SQL e PostgreSQL SQL.
+
+✅ Principais profissões da área
+
+DBA
+Desenvolvedor Back-end
+Analista de Dados
+Engenheiro de Dados
+Cientista de Dados 🚀

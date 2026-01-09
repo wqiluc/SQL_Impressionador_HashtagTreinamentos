@@ -1,7 +1,7 @@
-CREATE DATABASE IF NOT EXISTS dados_pessoais;
+CREATE DATABASE IF NOT EXISTS dados_acessiveis;
 
 
-USE dados_pessoais;
+USE dados_acessiveis;
 
 
 CREATE TABLE IF NOT EXISTS pessoas (

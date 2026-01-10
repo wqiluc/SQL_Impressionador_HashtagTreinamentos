@@ -1,20 +1,14 @@
-CREATE DATABASE IF NOT EXISTS info_pessoas;
-
-USE info_pessoas;
-
-CREATE TABLE IF NOT EXISTS pessoas (
-    id INT AUTO_INCREMENT PRIMARY KEY,
+CREATE TABLE contatos (
+    id INT PRIMARY KEY,
     nome VARCHAR(100),
-    idade INT,
-    genero VARCHAR(20),
-    salario DECIMAL(10,2),
-    tem_filhos BOOLEAN,
-    brasileiro BOOLEAN);
+    email VARCHAR(150),
+    telefone VARCHAR(20),
+    cidade VARCHAR(100),
+    preferencia_idioma VARCHAR(50),
+    horario_contato VARCHAR(50)
+);
 
-INSERT INTO pessoas (nome, idade, genero, salario, tem_filhos, brasileiro) VALUES
-('Lucas', 20, 'homem', 2500.50, 0, 1),
-('Maria', 25, 'mulher', 3200.00, 1, 1),
-('João', 30, 'homem', 4000.75, 1, 0);
-
-
-SELECT * FROM pessoas;
+INSERT INTO contatos (id, nome, email, telefone, cidade, preferencia_idioma, horario_contato) VALUES
+(1, 'Lucas', 'lucas@email.com', '(11) 99999-1111', 'São Paulo', 'Português', 'Manhã'),
+(2, 'Maria', 'maria@email.com', '(21) 98888-2222', 'Rio de Janeiro', 'Português', 'Tarde'),
+(3, 'João', 'joao@email.com', '(31) 97777-3333', 'Belo Horizonte', 'Inglês', 'Noite');

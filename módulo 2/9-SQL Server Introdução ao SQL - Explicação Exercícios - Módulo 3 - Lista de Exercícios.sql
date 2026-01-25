@@ -7,8 +7,6 @@
 -- Escreva as resoluções nos espaços indicados abaixo
 -- =========================================================
 
-
-
 -- =========================================================
 -- EXERCÍCIO 1
 -- Controle de dados de clientes e produtos
@@ -62,10 +60,12 @@ select DISTINCT
     id_cliente as ID_do_Cliente from clientes;
 select DISTINCT
     nome_cliente as Nome_Cliente from clientes;
-SELECT DISTINCT
+select DISTINCT
     email_cliente as Email_Cliente from clientes; 
-SELECT DISTINCT
-    data_cadastro_cliente as Data_de_Cadastro_do_Cliente from clientes;
+select DISTINCT
+    data_cadastro_cliente as Data_de_Cadastro_do_Cliente 
+from 
+    clientes;
 
 -- =========================================================
 -- EXERCÍCIO 3
@@ -91,7 +91,14 @@ select * from clientes
 -- Resolução:
 --
 
-SELECT c.* FROM clientes c JOIN (SELECT CEIL(COUNT(*) * 0.05) as limite from clientes) to ORDER BY c.id_cliente LIMIT t.limite;
+SELECT 
+    c.* 
+FROM 
+    clientes c JOIN (SELECT CEIL(COUNT(*) * 0.05) as "limite" from clientes) 
+to ORDER BY 
+    c.id_cliente 
+LIMIT 
+    t.limite;
 
 
 -- 3.c Retornar apenas as 100 primeiras linhas
@@ -102,18 +109,25 @@ SELECT c.* FROM clientes c JOIN (SELECT CEIL(COUNT(*) * 0.05) as limite from cli
 --
 
 show databases;
-use contoso_ficticio;
-show tables;
-select * from clientes;
+use 
+    contoso_ficticio;
+show 
+    tables;
+select 
+    * 
+from 
+    clientes;
 
-SELECT DISTINCT nome_cliente AS Nome_Cliente, email_cliente AS Email_Cliente, data_cadastro_cliente AS Data_de_Cadastro_do_Cliente FROM clientes LIMIT 6;
+SELECT distinct 
 
 -- 3.d Renomear as colunas anteriores para nomes em português
 --
 -- Resolução:
 --
 
-nome_cliente AS Nome_Cliente, email_cliente AS Email_Cliente, data_cadastro_cliente AS Data_de_Cadastro_do_Cliente
+nome_cliente as "Nome_Cliente", 
+email_cliente as "Email_Cliente", 
+data_cadastro_cliente as "Data_de_Cadastro_do_Cliente"
 
 -- =========================================================
 -- EXERCÍCIO 4
@@ -129,10 +143,17 @@ nome_cliente AS Nome_Cliente, email_cliente AS Email_Cliente, data_cadastro_clie
 show databases;
 use contoso_ficticio;
 show tables;
-select * from vendedores;
+select 
+    * 
+from 
+    vendedores;
 
-select DISTINCT id_vendedor as Id_do_Vendedor, nome as Nome_do_Vendedor, 
-salario as Salário_do_Vendedor from vendedores;
+select DISTINCT 
+    id_vendedor as "Id_do_Vendedor", 
+    nome as "Nome_do_Vendedor", 
+    salario as "Salário_do_Vendedor" 
+from 
+    vendedores;
 
 -- =========================================================
 -- EXERCÍCIO 5
@@ -147,9 +168,17 @@ salario as Salário_do_Vendedor from vendedores;
 --
 
 show databases;
-use contoso_ficticio;
-show tables;
-select * from historico_produtos;
-select DISTINCT estoque_produto as Estoque_do_Produto from produtos;
+use 
+    contoso_ficticio;
+show 
+    tables;
+select 
+    * 
+from 
+    historico_produtos;
+select DISTINCT 
+    estoque_produto as "Estoque_do_Produto"
+from 
+    produtos;
 
 -- Todos os produtos estão cadastrados, e possuem, pelo menos; 1 venda ✅🛒🛍️

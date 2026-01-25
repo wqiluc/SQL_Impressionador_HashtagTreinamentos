@@ -11,7 +11,9 @@
 <p align="center">
   Repositório de estudos avançados em <strong>SQL</strong>, com foco em: modelagem de dados, consultas complexas, joins, subqueries, análise de dados, performance, integração com bancos relacionais e boas práticas profissionais. 🗄️📊  
   <br><br>
- <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/mysql/mysql-original.svg" width="36" style="vertical-align:middle;"/>
+ <img src="https://img.shields.io/badge/MySQL-4479A1?style=for-the-badge&logo=mysql&logoColor=white" style="vertical-align:middle; margin-left:5px;"/>
+  <img src="https://img.shields.io/badge/PostgreSQL-4169E1?style=for-the-badge&logo=postgresql&logoColor=white"style="vertical-align:middle; margin-left:5px;"/>
+  <img src="https://img.shields.io/badge/SQLite-003B57?style=for-the-badge&logo=sqlite&logoColor=white"style="vertical-align:middle; margin-left:5px;"/>
 </p>
 
 <h2 align="center">👨🏻‍💻 Autor deste Repositório:</h2>
@@ -61,7 +63,10 @@
 
 </div>
 
-<h2 align="center">📁 Estrutura do Projeto:</h2>
+<h2 align="center">🏛️ Arquitetura do Projeto: <br>
+<img src="https://img.shields.io/badge/-Arquitetura-111827?style=flat-square&logo=databricks&logoColor=white"
+     style="vertical-align:middle; margin-left:5px;"/>
+</h2>
 
 <pre>
 SQL - HashtagTreinamentos/
@@ -70,11 +75,9 @@ SQL - HashtagTreinamentos/
 │   └── Hashtag_logo2.jpeg
 ├── módulos/
 │   └── módulo(1,2,3,4,5...)/
-│           └── exércicios 
+│           └── conteúdo e exércicios
 ├── README.md
 └── LICENSE (MIT)
-<img src="https://img.shields.io/badge/-Arquitetura-111827?style=flat-square&logo=databricks&logoColor=white"
-     style="vertical-align:middle; margin-left:5px;"/>
 </pre>
 
 <h2 align="center">🎯 Objetivo do Repositório:</h2>
@@ -86,7 +89,7 @@ Este repositório tem como objetivo aprofundar os conhecimentos em <strong>SQL</
 <h2 align="center">⛏️💻 Ferramentas Utilizadas:</h2>
 
 <div align="center">
-  <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/vscode/vscode-original.svg" width="32"/>
+  <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/vscode/vscode-original.svg" width="32"/> <br>
   <img src="https://img.shields.io/badge/MySQL-4479A1?style=for-the-badge&logo=mysql&logoColor=white" height="28"/>
   <img src="https://img.shields.io/badge/PostgreSQL-4169E1?style=for-the-badge&logo=postgresql&logoColor=white" height="28"/>
   <img src="https://img.shields.io/badge/SQLite-003B57?style=for-the-badge&logo=sqlite&logoColor=white" height="28"/>

@@ -174,15 +174,20 @@ AND
 -- 6.a
 -- Utilizar a coluna Status para filtrar
 -- apenas lojas que não estão mais funcionando
---
+
+SELECT DISTINCT
+    StoreKey as "ID da Loja",
+    StoreName as "Nome da loja",
+    Status as 'Status da Loja'
+FROM 
+    DimStore
+WHERE
+    Status <> "Active";
+
 -- 6.b
 -- Caso a coluna Status não exista:
 -- Pense em outra forma de identificar lojas inativas
 -- (ex: data de fechamento ou ausência de data ativa)
---
--- ✍️ Resolução (SQL):
---
-
 
 
 -- =========================================================
@@ -204,10 +209,20 @@ AND
 --
 -- ✍️ Resolução (SQL):
 --
---
---
 
+SELECT DISTINCT
+    StoreKey AS "ID da Loja",
+    StoreName AS "Nome da Loja",
+    EmployeeCount AS "QTD de funcionários"
+FROM 
+    DimStore;
 
+-- Loja 1 = 3 Máquinas ☕️
+-- Loja 2 = 1 Máquina ☕️
+-- Loja 3 = 2 Máquinas ☕️
+-- Loja 4 = 2 Máquinas ☕️
+-- Loja 5 = 1 Máquina ☕️
+-- Loja 6 = 3 Máquinas ☕️
 
 -- =========================================================
 -- 🧠 EXERCÍCIO 8
@@ -223,10 +238,18 @@ AND
 --
 -- ✍️ Resolução (SQL):
 --
---
---
 
-
+SELECT DISTINCT
+    ProductKey as "ID - Produto",
+    ProductName as "Nome do Produto",
+    UnitPrice as "Preço Unitário do Produto (U$D)"
+FROM 
+    DimProduct
+WHERE
+    ProductName 
+        LIKE "%TV LCD%"
+ORDER BY
+    UnitPrice DESC;
 
 -- =========================================================
 -- 🧠 EXERCÍCIO 9
@@ -242,8 +265,21 @@ AND
 --
 -- ✍️ Resolução (SQL):
 --
---
 
+SELECT DISTINCT
+    ProductKey as "ID do Produto",
+    ProductName as "Nome do Produto",
+    BrandName as "Marca do Produto",
+    Color as "Cor do Produto",
+    Category as "Categoria do Produto"
+FROM
+    DimProduct
+WHERE
+    color in 
+        ("Green", "Orange", "Black", "Silver", "Pink")
+AND
+    BrandName in 
+            ("Contoso", "Litware", "Fabrikam."); 
 
 -- =========================================================
 -- 🧠 EXERCÍCIO 10
@@ -259,3 +295,18 @@ AND
 -- Ordenar o resultado por UnitPrice em ordem decrescente
 --
 -- ✍️ Resolução (SQL):
+
+SELECT DISTINCT
+    ProductKey as "ID do Produto",
+    ProductName as "Nome do Produto",
+    BrandName as "Marca do Produto",
+    Color as "Cor do Produto",
+    UnitPrice as "Preço do Produto (U$D)"
+FROM
+    DimProduct
+WHERE
+    BrandName in ("Contoso")
+    AND
+    Color in ("Silver")
+    AND
+    (UnitPrice>=10 AND UnitPrice<=30);

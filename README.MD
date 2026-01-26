@@ -1,7 +1,7 @@
 <h1 align="center">
   <span style="color:#4FC3F7;">Hashtag Treinamentos</span> - <br>
   <span style="color:purple;">SQL Impressionador</span>
-<img src="https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/amazondynamodb.svg" width="36"/>
+<img src="https://img.shields.io/badge/SQL-336791?style=for-the-badge"/>
 </h1>
 
 <p align="center">

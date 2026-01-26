@@ -291,7 +291,7 @@ AND
 -- da cor Silver e com UnitPrice entre 10 e 30 💲
 --
 -- Objetivo:
--- Identificar esses produtos
+-- Identificar esses produtos 🔍
 -- Ordenar o resultado por UnitPrice em ordem decrescente
 --
 -- ✍️ Resolução (SQL):
@@ -309,4 +309,6 @@ WHERE
     AND
     Color in ("Silver")
     AND
-    (UnitPrice>=10 AND UnitPrice<=30);
+    (UnitPrice>=10 AND UnitPrice<=30)
+ORDER BY
+    UnitPrice DESC;

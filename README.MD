@@ -10,13 +10,8 @@
 
 <p align="center">
   Repositório de estudos avançados em <strong>SQL</strong>, com foco em: modelagem de dados, consultas complexas, joins, subqueries, análise de dados, performance, integração com bancos relacionais e boas práticas profissionais. 🗄️📊  
-  <br><br>
-<img src="https://img.shields.io/badge/MySQL-4479A1?style=for-the-badge&logo=mysql&logoColor=white" 
-     style="vertical-align:middle; height:25px; margin-left:2px;"/>
-<img src="https://img.shields.io/badge/PostgreSQL-4169E1?style=for-the-badge&logo=postgresql&logoColor=white"
-     style="vertical-align:middle; height:25px; margin-left:2px;"/>
-<img src="https://img.shields.io/badge/SQLite-003B57?style=for-the-badge&logo=sqlite&logoColor=white"
-     style="vertical-align:middle; height:25px; margin-left:2px;"/>
+  <br>
+<img src="https://img.shields.io/badge/SQL-111827?style=flat-square&logo=instructure&logoColor=white" style="vertical-align:middle; margin-left:5px;"/>
 </p>
 
 <h2 align="center">👨🏻‍💻 Autor deste Repositório:</h2>

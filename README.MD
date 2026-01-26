@@ -10,7 +10,7 @@
 
 <p align="center">
   Repositório de estudos avançados em <strong>SQL</strong>, com foco em: modelagem de dados, consultas complexas, joins, subqueries, análise de dados, performance, integração com bancos relacionais e boas práticas profissionais. 🗄️📊  
-  <br>
+  <br><br>
 <img src="https://img.shields.io/badge/SQL-111827?style=flat-square&logo=instructure&logoColor=white" style="vertical-align:middle; margin-left:5px;"/>
 </p>
 

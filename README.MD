@@ -1,7 +1,7 @@
 <h1 align="center">
   <span style="color:#4FC3F7;">Hashtag Treinamentos</span> - <br>
   <span style="color:purple;">SQL Impressionador</span>
-<img src="https://img.shields.io/badge/Database%20SQL-003B57?style=for-the-badge&logo=databricks&logoColor=white"/>
+<img src="https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/databricks.svg" width="36"/>
 </h1>
 
 <p align="center">

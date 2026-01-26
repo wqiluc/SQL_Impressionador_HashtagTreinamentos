@@ -5,8 +5,19 @@
             "server": "localhost",
             "port": 3306,
             "driver": "MySQL",
-            "name": "Exercicios SQL",
+            "name": "base MySQL",
             "username": "wqiluc"
+        },
+        {
+            "ssh": "Disabled",
+            "previewLimit": 50,
+            "server": "localhost",
+            "port": 5432,
+            "driver": "PostgreSQL",
+            "name": "base PostgreSQL",
+            "database": " ",
+            "username": "wqiluc",
+            "connectionTimeout": 1000
         }
     ]
 }

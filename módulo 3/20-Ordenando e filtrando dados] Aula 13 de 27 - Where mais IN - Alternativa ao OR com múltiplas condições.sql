@@ -1,9 +1,22 @@
--- [SQL Server] Ordenando e filtrando dados
--- Aula 13 de 27: Where mais IN - Alternativa ao OR com múltiplas condições
+-- [MySQL] [Ordenando e filtrando dados]
+-- Aula 13 de 27: WHERE com IN - Alternativa ao OR com mÃºltiplas condiÃ§Ãµes
 
--- Podemos utilizar o operador IN como alternativa aos múltiplos OR.
+-- Podemos utilizar o operador IN como alternativa aos mÃºltiplos OR
 
--- Exemplo: Selecione os funcionários que são de qualquer um desses 3 departamentos: Production, Marketing, Engineering.
+-- Exemplo:
+-- Selecione os produtos que pertencem a qualquer uma destas categorias:
+-- 1 (Monitores);
+--2 (Notebooks); ou 
+-- 3 (PerifÃ©ricos).
 
-SELECT * FROM DimEmployee
-WHERE DepartmentName IN ('Production', 'Marketing', 'Engineering')
+SELECT DISTINCT
+    nome_produto as "Nome",
+    id_produto as "ID - Produto",
+    id_categoria as "ID - Categoria"
+FROM 
+    produtos
+WHERE 
+    id_categoria IN 
+                    (1, 2, 3)
+LIMIT
+    100;

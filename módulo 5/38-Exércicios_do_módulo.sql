@@ -4,8 +4,11 @@
 -- =========================================================
 -- Objetivo🎯:
 -- Resolver exercícios utilizando
--- GROUP BY, WHERE, HAVING, ORDER BY
--- e funções de agregação
+-- GROUP BY;
+-- WHERE; 
+--HAVING; 
+--ORDER BY; e
+-- Funções de Agregação.
 -- =========================================================
 
 USE 

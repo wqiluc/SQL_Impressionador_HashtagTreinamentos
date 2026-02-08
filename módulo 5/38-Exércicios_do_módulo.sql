@@ -323,16 +323,50 @@ GROUP BY
 -- por nível educacional (Education)
 -- =========================================================
 
+SELECT
+    *
+FROM
+    DimCustomer;
+
+SELECT DISTINCT
+    Sum(CustomerKey) as "Quantidade Total de Clientes",
+    AVG(YearlyIncome) as "Média Anual de Salário (U$D)",
+    Education as "Nível de Formação do Cliente (modelo americano)"
+FROM
+    DimCustomer
+WHERE
+    Education IN ('Bachelors','High School','Masters' and 'PhD')
+GROUP BY
+    Education
+ORDER BY
+    Education ASC;
 
 -- =========================================================
 -- 🧠 EXERCÍCIO 9 — DIMEMPLOYEE 👨‍💼
 -- =========================================================
 -- Descubra o total de funcionários
--- por departamento
+-- por departamento✅
 --
--- Considerar apenas funcionários ativos
+-- Considerar APENAS funcionários ativos✅
 -- =========================================================
 
+SELECT 
+    *
+FROM   
+    DimEmployee;
+
+SELECT DISTINCT
+    EmployeeKey as "ID do funcionário",
+    DepartmentName as "Departamentos",
+    Status as "Status de Atividade"
+FROM
+    DimEmployee
+WHERE
+    Status = 'Active'
+    AND
+    DepartmentName IN ('Production','Marketing','Engineering' and 'Finance')
+GROUP BY
+    EmployeeKey;
 
 -- =========================================================
 -- 🧠 EXERCÍCIO 10 — FÉRIAS 🏖️
@@ -347,3 +381,25 @@ GROUP BY
 -- - contratadas entre 1999 e 2000
 -- =========================================================
 
+SELECT 
+    *
+FROM
+    DimEmployee;
+
+SELECT DISTINCT
+     EmployeeKey as "Id do Funcionário",
+     DepartmentName as "Departamentos",
+     Title as "Cargos dos Funcionários",
+     Gender as "Gênero do Funcionário",
+     HireDate as "Data de Contratação",
+     VacationHours as "Horário de Férias"
+FROM
+    DimEmployee
+WHERE
+    Gender = "F"
+    AND 
+    HireDate BETWEEN '1999-04-04' and '2000-12-12'
+GROUP BY
+    EmployeeKey
+ORDER BY
+    EmployeeKey DESC;

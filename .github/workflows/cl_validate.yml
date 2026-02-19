@@ -1,0 +1,19 @@
+name: rValidação Estrutural no SQL
+
+on:
+  push:
+    paths:
+      - "queries/**.sql"
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Clonar repositório
+        uses: actions/checkout@v4
+
+      - name: Validar existência de arquivos SQL
+        run: |
+          count=$(find queries -name "*.sql" | wc -l)
+          echo "Total de arquivos SQL: $count"

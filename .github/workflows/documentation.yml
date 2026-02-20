@@ -2,11 +2,12 @@ name: 📚 Documentação
 
 on:
   push:
-    paths:
-      - "**/*.md"
+    branches:
+      - main
   pull_request:
-    paths:
-      - "**/*.md"
+    branches:
+      - main
+  workflow_dispatch:
 
 jobs:
   docs-check:

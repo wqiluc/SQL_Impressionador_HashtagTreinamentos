@@ -3,10 +3,10 @@ name: 📚 Documentação
 on:
   push:
     paths:
-      - "**.md"
+      - "**/*.md"
   pull_request:
     paths:
-      - "**.md"
+      - "**/*.md"
 
 jobs:
   docs-check:
@@ -26,12 +26,12 @@ jobs:
 
       - name: Verificar arquivos Markdown vazios
         run: |
-          find . -name "*.md" -print0 | while IFS= read -r -d '' file; do
+          while IFS= read -r -d '' file; do
             if [ ! -s "$file" ]; then
               echo "Arquivo vazio encontrado: $file"
               exit 1
             fi
-          done
+          done < <(find . -name "*.md" -print0)
 
       - name: Confirmação final 🪙
         run: echo "Documentação validada com sucesso ✅"

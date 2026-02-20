@@ -19,7 +19,7 @@ jobs:
 
       - name: Verificar existência do README
         run: |
-          if [ ! -f README.md ]; then
+          if [ ! -f readme.md ]; then
             echo "README.md não encontrado!"
             exit 1
           fi

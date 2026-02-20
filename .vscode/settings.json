@@ -19,5 +19,9 @@
             "username": "wqiluc",
             "connectionTimeout": 1000
         }
+    ],
+    "github-actions.workflows.pinned.workflows": [
+        ".github/workflows/documentation.yml",
+        ".github/workflows/sql_check.yml"
     ]
 }

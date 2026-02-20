@@ -36,13 +36,16 @@ jobs:
       - name: Clonar repositório
         uses: actions/checkout@v4
 
-      - name: Aguardar MySQL iniciar
+      - name: Aguardar MySQL e executar arquivos SQL
         run: |
-          sleep 15
+          # Esperar até o MySQL estar pronto
+          until mysqladmin ping -h 127.0.0.1 -P 3306 -uroot -proot --silent; do
+            echo "Aguardando MySQL..."
+            sleep 2
+          done
 
-      - name: Executar arquivos SQL
-        run: |
-          for file in $(find . -name "*.sql"); do
+          # Executar todos os arquivos SQL encontrados
+          find . -name "*.sql" -print0 | while IFS= read -r -d '' file; do
             echo "Executando $file"
             mysql -h 127.0.0.1 -P 3306 -u root -proot testdb < "$file"
           done

@@ -1,36 +1,24 @@
 -- =========================================================
--- 📘 [SQL Server] LEFT JOIN
--- Aula 7 de 17 — Preservando a tabela da esquerda ⬅️
+-- 📘 [SQL Server] INNER JOIN
+-- Aula 9 de 17 — Interseção entre tabelas 🔗
 -- =========================================================
 -- Objetivo🎯:
--- Retornar todos os registros da tabela
--- produtos mesmo sem correspondência.
+-- Retornar apenas registros que possuem;
+-- correspondência em ambas as tabelas.
 -- =========================================================
 
-login mysql;
+login mysql (or your database);
 show databases;
 use modulo6;
-
-SELECT 
-    * 
-FROM 
-    produtos;
-
-
-SELECT 
-    * 
-FROM 
-    subcategoria;
-
+show tables;
 
 SELECT
 	produtos.id_produto,
 	produtos.nome_produto,
-	produtos.id_subcategoria,
 	subcategoria.nome_subcategoria
 FROM 
     produtos
-LEFT JOIN 
+INNER JOIN 
     subcategoria
 	    ON 
             produtos.id_subcategoria = subcategoria.id_subcategoria;

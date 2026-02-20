@@ -7,12 +7,14 @@
 -- Apresentar os principais tipos de JOIN
 -- que serão estudados neste módulo,
 -- explicando:
--- ✔ Quando usar
--- ✔ O que retorna
--- ✔ Diferença entre eles
+-- ✅ Quando usar;
+-- ✅ O que retorna;
+-- ✅ Diferença entre eles.
 -- =========================================================
 
-USE modulo6;
+login mysql;
+show databases;
+use modulo6;
 
 -- =========================================================
 -- 🧠 1) INNER JOIN
@@ -196,7 +198,7 @@ USE modulo6;
 
 
 -- =========================================================
--- 🎓 RESUMO FINAL
+-- 🎓 RESUMO FINAL:
 -- =========================================================
 -- INNER       → Interseção
 -- LEFT        → Preserva esquerda

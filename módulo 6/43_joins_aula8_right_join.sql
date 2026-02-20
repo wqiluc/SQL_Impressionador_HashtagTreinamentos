@@ -1,27 +1,16 @@
 -- =========================================================
--- 📘 [SQL Server] LEFT JOIN
--- Aula 7 de 17 — Preservando a tabela da esquerda ⬅️
+-- 📘 [SQL Server] RIGHT JOIN
+-- Aula 8 de 17 — Preservando a tabela da direita ➡️
 -- =========================================================
 -- Objetivo🎯:
--- Retornar todos os registros da tabela
--- produtos mesmo sem correspondência.
+-- Retornar todos os registros da tabela;
+-- subcategoria mesmo sem produto associado.
 -- =========================================================
 
-login mysql;
+login mysql (or your database);
 show databases;
 use modulo6;
-
-SELECT 
-    * 
-FROM 
-    produtos;
-
-
-SELECT 
-    * 
-FROM 
-    subcategoria;
-
+show tables;
 
 SELECT
 	produtos.id_produto,
@@ -30,7 +19,7 @@ SELECT
 	subcategoria.nome_subcategoria
 FROM 
     produtos
-LEFT JOIN 
+RIGHT JOIN 
     subcategoria
 	    ON 
             produtos.id_subcategoria = subcategoria.id_subcategoria;

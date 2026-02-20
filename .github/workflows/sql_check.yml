@@ -44,11 +44,11 @@ jobs:
             sleep 2
           done
 
-          # Executar todos os arquivos .sql (apenas arquivos regulares)
-          find . -type f -name "*.sql" -print0 | while IFS= read -r -d '' file; do
+          # Executar todos os arquivos .sql corretamente
+          while IFS= read -r -d '' file; do
             echo "Executando $file"
             mysql -h 127.0.0.1 -P 3306 -u root -proot testdb < "$file"
-          done
+          done < <(find . -type f -name "*.sql" -print0)
 
       - name: Confirmação final
         run: echo "Scripts SQL executados com sucesso ✅"

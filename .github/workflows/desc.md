@@ -18,9 +18,7 @@ Garantir validação automática de scripts SQL, organização estrutural do pro
 <pre>
 .github<img src="https://skillicons.dev/icons?i=github" width="15">/
 └── workflows<img src="https://skillicons.dev/icons?i=githubactions" width="15"/>/
-      ├── cm.yml<img src="https://skillicons.dev/icons?i=githubactions" width="15"/>
-      ├── cm_validate.yml<img src="https://skillicons.dev/icons?i=githubactions" width="15"/>
-      ├── documentation.yml<img src="https://skillicons.dev/icons?i=githubactions" width="15"/>
+      ├── blank.yml<img src="https://skillicons.dev/icons?i=githubactions" width="15"/>
       └── desc.md <img src="https://img.shields.io/badge/Markdown-FFFFFF?style=flat-square&logo=markdown&logoColor=black" height="14"/>
 </pre>
 

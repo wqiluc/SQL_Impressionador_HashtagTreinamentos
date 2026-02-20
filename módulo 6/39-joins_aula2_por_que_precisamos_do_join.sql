@@ -9,7 +9,7 @@
 -- para combinar essas informações.
 -- =========================================================
 
-login basemysql;
+login basemysql(or your database);
 show databases;
 use modulo6;
 show tables;
@@ -70,8 +70,16 @@ FROM
 -- Planejamento estratégico
 -- =========================================================
 
-SELECT * FROM FactStrategyPlan;
-SELECT * FROM DimScenario;
+SELECT 
+    *  
+FROM 
+    FactStrategyPlan;
+
+
+SELECT 
+    * 
+FROM 
+    DimScenario;
 
 -- =========================================================
 -- 💡 CONCLUSÃO

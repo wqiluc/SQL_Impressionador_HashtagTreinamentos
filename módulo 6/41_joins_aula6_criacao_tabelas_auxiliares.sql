@@ -7,7 +7,7 @@
 -- visualmente os diferentes tipos de JOIN.
 -- =========================================================
 
-login mysql;
+login mysql (or your database);
 show databases;
 use modulo6;
 show tables;

@@ -3,13 +3,14 @@
 -- Aula 7 de 17 — Preservando a tabela da esquerda ⬅️
 -- =========================================================
 -- Objetivo🎯:
--- Retornar todos os registros da tabela
+-- Retornar todos os registros da tabela;
 -- produtos mesmo sem correspondência.
 -- =========================================================
 
-login mysql;
+login mysql(or your database);
 show databases;
 use modulo6;
+show tables;
 
 SELECT 
     * 

@@ -19,7 +19,7 @@ SELECT
 	subcategoria.nome_subcategoria
 FROM 
     produtos
-RIGHT JOIN 
+RIGHT JOIN /*Preserva a tabela da DIREITA*/
     subcategoria
 	    ON 
             produtos.id_subcategoria = subcategoria.id_subcategoria;

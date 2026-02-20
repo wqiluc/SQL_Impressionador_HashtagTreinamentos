@@ -17,7 +17,7 @@ Guia completo e profissional sobre <strong>JOINs no SQL</strong>, abordando conc
 <h2 align="center">📚 O que são JOINs?</h2>
 
 <p align="center">
-JOIN é o recurso do SQL responsável por <strong>combinar dados de duas ou mais tabelas</strong> com base em uma condição lógica entre colunas relacionadas.<br><br>
+<strong>'JOIN'</strong> é o recurso do SQL responsável por <strong>combinar dados de duas ou mais tabelas</strong> com base em uma condição lógica entre colunas relacionadas.<br><br>
 Em bancos relacionais, os JOINs permitem reconstruir informações distribuídas entre tabelas fato e dimensão, mantendo integridade e organização dos dados.
 </p>
 

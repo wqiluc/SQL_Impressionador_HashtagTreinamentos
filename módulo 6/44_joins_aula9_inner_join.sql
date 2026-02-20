@@ -21,4 +21,4 @@ FROM
 INNER JOIN 
     subcategoria
 	    ON 
-            produtos.id_subcategoria = subcategoria.id_subcategoria;
+        	produtos.id_subcategoria = subcategoria.id_subcategoria;

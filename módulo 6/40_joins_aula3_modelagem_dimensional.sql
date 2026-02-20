@@ -7,7 +7,7 @@
 -- entre Fato e Dimensão no modelo estrela.
 -- =========================================================
 
-login basemysql;
+login basemysql (or your database);
 show databases;
 use modulo6;
 show tables;

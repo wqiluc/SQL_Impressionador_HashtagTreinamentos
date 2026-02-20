@@ -1,0 +1,51 @@
+name: 🗄️ SQL Validation
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - "**/*.sql"
+  pull_request:
+    branches:
+      - main
+    paths:
+      - "**/*.sql"
+  workflow_dispatch:
+
+jobs:
+  sql-test:
+    name: Testar Scripts SQL
+    runs-on: ubuntu-latest
+
+    services:
+      mysql:
+        image: mysql:8.0
+        env:
+          MYSQL_ROOT_PASSWORD: root
+          MYSQL_DATABASE: testdb
+        ports:
+          - 3306:3306
+        options: >-
+          --health-cmd="mysqladmin ping --silent"
+          --health-interval=10s
+          --health-timeout=5s
+          --health-retries=5
+
+    steps:
+      - name: Clonar repositório
+        uses: actions/checkout@v4
+
+      - name: Aguardar MySQL iniciar
+        run: |
+          sleep 15
+
+      - name: Executar arquivos SQL
+        run: |
+          for file in $(find . -name "*.sql"); do
+            echo "Executando $file"
+            mysql -h 127.0.0.1 -P 3306 -u root -proot testdb < "$file"
+          done
+
+      - name: Confirmação final
+        run: echo "Scripts SQL executados com sucesso ✅"

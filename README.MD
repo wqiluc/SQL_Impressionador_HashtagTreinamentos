@@ -18,7 +18,7 @@
 
 <div align="center">
 
-<strong>Lucas Paguetti Pereira</strong> 🧙‍♂️  
+<strong>Lucas Paguetti Pereira</strong> 🦇  
 <strong>🏫 Instituição</strong>: Cesar School 🎓🧡  
 📍 Recife, Pernambuco — <strong>Brazil</strong> 🇧🇷  
 
@@ -69,15 +69,30 @@
 
 <pre>
 SQL - HashtagTreinamentos/
+├── .github <img src="https://skillicons.dev/icons?i=github" width="15"/>/
+│   └── workflows <img src="https://skillicons.dev/icons?i=githubactions" width="15"/>/
+│       ├── cm.yml <img src="https://skillicons.dev/icons?i=githubactions" width="15"/>
+│       ├── cm_validate.yml <img src="https://skillicons.dev/icons?i=githubactions" width="15"/>
+│       ├── documentation.yml <img src="https://skillicons.dev/icons?i=githubactions" width="15"/>
+│       └── desc.md <img src="https://img.shields.io/badge/Markdown-FFFFFF?style=flat-square&logo=markdown&logoColor=black" height="14"/>
+│
+├── .vscode <img src="https://skillicons.dev/icons?i=vscode" width="15"/>/
+│   └── settings.json<img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/json/json-original.svg" height="20"/>
+│
 ├── img/
-│   └── Hashtag_logo.jpeg
-│   └── Hashtag_logo2.jpeg
-├── módulos/
+│   ├── Hashtag_logo.jpeg<img src="https://cdn-icons-png.flaticon.com/512/136/136524.png" width="18"/>
+│   └── Hashtag_logo2.jpeg<img src="https://cdn-icons-png.flaticon.com/512/136/136524.png" width="18"/>
+│
+├── módulos <img src="https://skillicons.dev/icons?i=mysql,postgresql,sqlite" width="45"/>/
 │   └── módulo(1,2,3,4,5...)/
-│       └── conteúdo e exercícios
-├── README.md
-└── LICENSE (MIT)
-└── SQLtools/
+│       └── conteúdo e exercícios.sql
+│
+├── license/
+│   └── license (MIT)<img src="https://img.shields.io/badge/⚖️%20License-MIT-FFA500?style=for-the-badge&logoColor=white" height="21"/>
+│
+├── readme.md <img src="https://img.shields.io/badge/Markdown-FFFFFF?style=flat-square&logo=markdown&logoColor=black" height="14"/>
+│
+└── SQLtools <img src="https://skillicons.dev/icons?i=mysql,postgresql,sqlite" width="45"/>/
         └── (MySQL, PostgreSQL e SQLite disponíveis)
 </pre>
 
@@ -93,7 +108,7 @@ Este repositório tem como objetivo aprofundar os conhecimentos em <strong>SQL</
   <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/vscode/vscode-original.svg" width="32"/> <br>
   <img src="https://img.shields.io/badge/MySQL-4479A1?style=for-the-badge&logo=mysql&logoColor=white" height="28"/>
   <img src="https://img.shields.io/badge/PostgreSQL-4169E1?style=for-the-badge&logo=postgresql&logoColor=white" height="28"/>
-  <img src="https://img.shields.io/badge/SQLite-003B57?style=for-the-badge&logo=sqlite&logoColor=white" height="28"/>
-  <img src="https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=git&logoColor=black" height="28"/>
-  <img src="https://img.shields.io/badge/GitHub-000000?style=for-the-badge&logo=github&logoColor=white" height="28"/>
+  <img src="https://img.shields.io/badge/SQLite-003B57?style=for-the-badge&logo=sqlite&logoColor=white" height="28"/> <br>
+  <img src="https://img.shields.io/badge/Versionamento-Git-F05032?style=for-the-badge&logo=git&logoColor=orange&labelColor=black" height="28"/>
+  <img src="https://img.shields.io/badge/Plataforma-GitHub-181717?style=for-the-badge&logo=github&logoColor=white&labelColor=black" height="28"/>
 </div>

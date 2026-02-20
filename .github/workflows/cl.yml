@@ -1,0 +1,25 @@
+name: CI SQL tests (mysql, sqlLite e PostgreSql)
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  sql-check:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Clonar repositório
+        uses: actions/checkout@v4
+
+      - name: Instalar SQLite
+        run: sudo apt-get install sqlite3
+
+      - name: Executar scripts SQL
+        run: |
+          for file in $(find . -name "*.sql"); do
+            echo "Executando $file"
+            sqlite3 test.db < "$file"
+          done

@@ -77,7 +77,7 @@ SQL - HashtagTreinamentos/
 │       └── desc.md <img src="https://img.shields.io/badge/Markdown-FFFFFF?style=flat-square&logo=markdown&logoColor=black" height="14"/>
 │
 ├── .vscode <img src="https://skillicons.dev/icons?i=vscode" width="15"/>/
-│   └── settings.json
+│   └── settings.json<img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/json/json-original.svg" height="20"/>
 │
 ├── img/
 │   ├── Hashtag_logo.jpeg<img src="https://cdn-icons-png.flaticon.com/512/136/136524.png" width="18"/>

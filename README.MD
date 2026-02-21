@@ -80,6 +80,7 @@ SQL - HashtagTreinamentos/
 ├── img/
 │   ├── Hashtag_logo.jpeg<img src="https://cdn-icons-png.flaticon.com/512/136/136524.png" width="18"/>
 │   └── Hashtag_logo2.jpeg<img src="https://cdn-icons-png.flaticon.com/512/136/136524.png" width="18"/>
+│   └── sql joins.jpeg<img src="https://cdn-icons-png.flaticon.com/512/136/136524.png" width="18"/>
 │
 ├── módulos <img src="https://skillicons.dev/icons?i=mysql,postgresql,sqlite" width="45"/>/
 │   └── módulo(1,2,3,4,5...)/

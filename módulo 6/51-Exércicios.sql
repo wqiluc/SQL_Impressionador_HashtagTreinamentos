@@ -9,11 +9,11 @@ Os JOINs permitem combinar informações de duas ou mais
 tabelas através de uma coluna em comum (chave).
 
 Tipos principais:
-🔹 INNER JOIN → retorna apenas registros que existem nas duas tabelas
-🔹 LEFT JOIN → retorna todos da tabela da esquerda + correspondências
-🔹 CROSS JOIN → gera combinação total entre tabelas
+🔹 INNER JOIN → retorna apenas registros que existem nas duas tabelas🏆;
+🔹 LEFT JOIN → retorna todos da tabela da esquerda + correspondências🏆;
+🔹 CROSS JOIN → gera combinação total entre tabelas🏆.
 
-Agora é sua vez 🚀
+Agora é sua vez!! 🚀
 */
 
 /* ===========================================================
@@ -209,14 +209,21 @@ Use TOP 100 para analisar a estrutura.
 =========================================================== */
 
 /*
-✍️ RESOLUÇÃO:
+✍️ RESOLUÇÃO: */ 
 
+SELECT DISTINCT
+  StrategyPlanKey as "ID",
+  DateKey as "Data",
+  AccountKey as "Chave da Conta",
+  ScenarioKey as "Cenário da Conta",
+  Amount as "QTD. U$D CONTA (value)"
+FROM 
+  FactStrategyPlan
+LIMIT
+  100;
 
-
-
-*/
-
-
+/*Chave Principal =  StrategyPlanKey, AccountKey e ScenarioKey
+Chaves Estrangeiras/Secundárias =DateKey e Amount*/
 
 /* ===========================================================
 5️⃣ b) INNER JOIN - AccountName
@@ -241,14 +248,21 @@ Fact table sempre aponta para dimensão.
 =========================================================== */
 
 /*
-✍️ RESOLUÇÃO:
+✍️ RESOLUÇÃO: */ 
 
 
+SELECT * FROM FactStrategyPlan;
+SELECT * FROM DimAccount;
 
-
-*/
-
-
+SELECT
+  FactStrategyPlan.StrategyPlanKey,
+  FactStrategyPlan.DateKey,
+  DimAccount.AccountKey,
+  FactStrategyPlan.Amount
+FROM 
+  FactStrategyPlan
+INNER JOIN DimAccount ON
+    FactStrategyPlan.AccountKey = DimAccount.AccountKey;
 
 /* ===========================================================
 6️⃣ INNER JOIN - ScenarioName
@@ -275,14 +289,23 @@ Qual tabela guarda o nome do cenário?
 =========================================================== */
 
 /*
-✍️ RESOLUÇÃO:
+✍️ RESOLUÇÃO: */ 
 
+SELECT * FROM DimScenario;
+SELECT * FROM FactStrategyPlan;
 
-
-
-*/
-
-
+SELECT
+  DimScenario.ScenarioKey,
+  DimScenario.ScenarioName,
+  FactStrategyPlan.DateKey,
+  FactStrategyPlan.ScenarioKey,
+  FactStrategyPlan.Amount
+FROM
+  DimScenario
+INNER JOIN FactStrategyPlan ON
+  DimScenario.ScenarioKey = FactStrategyPlan.StrategyPlanKey
+ORDER BY
+  Amount ASC;
 
 /* ===========================================================
 7️⃣ Subcategorias sem Produtos
@@ -302,14 +325,21 @@ Se não existe produto, o que ficará NULL?
 =========================================================== */
 
 /*
-✍️ RESOLUÇÃO:
+✍️ RESOLUÇÃO:*/ 
 
 
+SELECT * FROM DimProduct;
+SELECT * FROM DimProductSubcategory;
 
-
-*/
-
-
+SELECT 
+  DimProduct.ProductKey,
+  DimProduct.ProductName,
+  DimProductSubcategory.ProductSubcategoryKey,
+  DimProductSubcategory.ProductSubcategoryName
+FROM
+  DimProduct
+LEFT JOIN DimProductSubcategory ON
+  DimProduct.ProductKey = DimProductSubcategory.ProductSubcategoryKey;
 
 /* ===========================================================
 8️⃣ CROSS JOIN - Marca x Canal
@@ -335,14 +365,24 @@ Quantas combinações serão geradas?
 =========================================================== */
 
 /*
-✍️ RESOLUÇÃO:
+✍️ RESOLUÇÃO: */
 
+SELECT * FROM DimProduct;
+SELECT * FROM DimChannel;
 
-
-
-*/
-
-
+SELECT 
+  DimProduct.ProductKey,
+  DimChannel.ChannelKey,
+  DimProductSubcategory.ProductSubcategoryKey,
+  DimProduct.ProductName,
+  DimProductSubcategory.ProductSubcategoryName,
+  DimProduct.BrandName
+FROM
+  DimProduct
+CROSS JOIN DimChannel ON
+  DimProduct.ProductKey = DimChannel.ChannelKey
+CROSS JOIN DimProductSubcategory ON
+  DimProductSubcategory.ProductSubcategoryKey = DimChannel.ChannelKey;
 
 /* ===========================================================
 9️⃣ JOIN com Filtro - Vendas Online com Desconto
@@ -370,14 +410,25 @@ Qual coluna conecta vendas e promoção?
 =========================================================== */
 
 /*
-✍️ RESOLUÇÃO:
+✍️ RESOLUÇÃO:*/
 
+SELECT * FROM FactOnlineSales;
+SELECT * FROM DimPromotion;
 
-
-
-*/
-
-
+SELECT 
+  FactOnlineSales.OnlineSalesKey,
+  FactOnlineSales.DateKey,
+  FactOnlineSales.SalesAmount,
+  DimPromotion.PromotionKey,
+  DimPromotion.PromotionName
+FROM
+  FactOnlineSales
+INNER JOIN DimPromotion ON
+   FactOnlineSales.OnlineSalesKey = DimPromotion.PromotionKey
+WHERE
+  PromotionName <> "No Discount"
+ORDER BY
+  SalesAmount ASC;
 
 /* ===========================================================
 🔟 JOIN Múltiplo - Fato + 3 Dimensões
@@ -405,9 +456,22 @@ Dimensões ao redor
 =========================================================== */
 
 /*
-✍️ RESOLUÇÃO:
+✍️ RESOLUÇÃO:*/ 
 
+SELECT * FROM FactSales;
+SELECT * FROM DimChannel;
 
-
-
-*/
+SELECT 
+    fs.SalesKey,
+    fs.SalesAmount,
+    dc.ChannelName,
+    ds.StoreName,
+    dp.ProductName
+FROM 
+  FactSales fs
+INNER JOIN DimChannel dc ON 
+  fs.ChannelKey = dc.ChannelKey
+INNER JOIN DimStore ds ON 
+  fs.StoreKey = ds.StoreKey
+INNER JOIN DimProduct dp ON 
+  fs.ProductKey = dp.ProductKey;

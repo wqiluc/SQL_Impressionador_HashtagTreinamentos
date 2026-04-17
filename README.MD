@@ -79,7 +79,7 @@ SQL - HashtagTreinamentos/
 │
 ├── módulos <img src="https://skillicons.dev/icons?i=mysql,postgresql,sqlite" width="45"/>/
 │   └── módulo(1,2,3,4,5...)/
-│       ├── pdf/ <img src="https://img.shields.io/badge/Exércicio-PDF-red?style=flat-square&logo=adobeacrobatreader&logoColor=white" height="16"/>
+│       ├── pdf/ <img src="https://img.shields.io/badge/PDF-Arquivo-FF0000?style=flat-square&logo=data:image/svg+xml;base64,PHN2ZyByb2xlPSJpbWciIHZpZXdCb3g9IjAgMCAyNCAyNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJNMTguMTE3IDUuMTY0YzEuMDE0IDAgMS44MzYuODIyIDEuODM2IDEuODM2djEwYzAgMS4wMTQtLjgyMiAxLjgzNi0xLjgzNiAxLjgzNkg1Ljg4M2MtMS4wMTQgMC0xLjgzNi0uODIyLTEuODM2LTEuODM2di0xMGMwLTEuMDE0LjgyMi0xLjgzNiAxLjgzNi0xLjgzNmgxMi4yMzR6bS02LjA2NSA1LjA1N0w2LjkxMiAxNC42OWgxMC4yOGwtNS4xNDQtOS41MjZ6IiBmaWxsPSJ3aGl0ZSIvPjwvc3ZnPg==&logoColor=white" height="18">
 │       └── sql/ <img src="https://img.shields.io/badge/-SQL-111827?style=flat-square&logo=mysql&logoColor=white" height="18"/><img src="https://img.shields.io/badge/-PostgreSQL-111827?style=flat-square&logo=postgresql&logoColor=white" height="18"/><img src="https://img.shields.io/badge/-SQLite-111827?style=flat-square&logo=sqlite&logoColor=white" height="18"/><img src="https://img.shields.io/badge/-Docker-111827?style=flat-square&logo=docker&logoColor=2496ED" height="18"/>
 ├── SQLtools <img src="https://skillicons.dev/icons?i=mysql,postgresql,sqlite" width="45"/>/
 │   └── (MySQL, PostgreSQL e SQLite disponíveis) <img src="https://img.shields.io/badge/Setup-Ambiente-4479A1?style=flat-square&logo=databricks&logoColor=blue" height="16"/>

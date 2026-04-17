@@ -5,13 +5,16 @@
 </h1>
 
 <p align="center">
-<img src="img/Hashtag_logo2.jpeg" alt="Logo centro">
+<img src="img/Hashtag_logo2.jpeg" alt="Logo centro" width="410">
 </p>
 
 <p align="center">
-  Repositório de estudos avançados em <strong>SQL</strong>, com foco em: modelagem de dados, consultas complexas, joins, subqueries, análise de dados, performance, integração com bancos relacionais e boas práticas profissionais. 🗄️📊  
+  Repositório de estudos avançados em <strong>SQL</strong>, com foco em: modelagem de dados, consultas complexas, joins, subqueries, análise de dados, performance, integração com bancos relacionais e boas práticas profissionais.  
   <br><br>
-<img src="https://img.shields.io/badge/SQL-111827?style=flat-square&logo=instructure&logoColor=white" style="vertical-align:middle; margin-left:5px;"/>
+  <img src="https://img.shields.io/badge/-SQL-111827?style=flat-square&logo=mysql&logoColor=white"/>
+  <img src="https://img.shields.io/badge/-PostgreSQL-111827?style=flat-square&logo=postgresql&logoColor=white"/>
+  <img src="https://img.shields.io/badge/-SQLite-111827?style=flat-square&logo=sqlite&logoColor=white"/>
+  <img src="https://img.shields.io/badge/-Docker-111827?style=flat-square&logo=docker&logoColor=2496ED"/>
 </p>
 
 <h2 align="center">👨🏻‍💻 Autor deste Repositório:</h2>
@@ -69,30 +72,22 @@
 
 <pre>
 SQL - HashtagTreinamentos/
-├── .github <img src="https://skillicons.dev/icons?i=github" width="15"/>/
-│   └── workflows <img src="https://skillicons.dev/icons?i=githubactions" width="15"/>/
-│       ├── blank.yml <img src="https://skillicons.dev/icons?i=githubactions" width="15"/>
-│       └── desc.md <img src="https://img.shields.io/badge/Markdown-FFFFFF?style=flat-square&logo=markdown&logoColor=black" height="14"/>
-│
-├── .vscode <img src="https://skillicons.dev/icons?i=vscode" width="15"/>/
-│   └── settings.json<img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/json/json-original.svg" height="20"/>
-│
-├── img/
-│   ├── Hashtag_logo.jpeg<img src="https://cdn-icons-png.flaticon.com/512/136/136524.png" width="18"/>
-│   └── Hashtag_logo2.jpeg<img src="https://cdn-icons-png.flaticon.com/512/136/136524.png" width="18"/>
-│   └── sql joins.jpeg<img src="https://cdn-icons-png.flaticon.com/512/136/136524.png" width="18"/>
+├── img/ <img src="https://img.shields.io/badge/Assets-Imagens-orange?style=flat-square&logo=icloud&logoColor=white" height="16"/>
+│   ├── Hashtag_logo.jpeg
+│   ├── Hashtag_logo2.jpeg
+│   └── sql_joins.jpeg
 │
 ├── módulos <img src="https://skillicons.dev/icons?i=mysql,postgresql,sqlite" width="45"/>/
 │   └── módulo(1,2,3,4,5...)/
-│       └── conteúdo e exercícios.sql
+│       ├── pdf/ <img src="https://img.shields.io/badge/Exércicio-PDF-red?style=flat-square&logo=adobeacrobatreader&logoColor=white" height="16"/>
+│       └── sql/ <img src="https://img.shields.io/badge/-SQL-111827?style=flat-square&logo=mysql&logoColor=white" height="18"/><img src="https://img.shields.io/badge/-PostgreSQL-111827?style=flat-square&logo=postgresql&logoColor=white" height="18"/><img src="https://img.shields.io/badge/-SQLite-111827?style=flat-square&logo=sqlite&logoColor=white" height="18"/><img src="https://img.shields.io/badge/-Docker-111827?style=flat-square&logo=docker&logoColor=2496ED" height="18"/>
+├── SQLtools <img src="https://skillicons.dev/icons?i=mysql,postgresql,sqlite" width="45"/>/
+│   └── (MySQL, PostgreSQL e SQLite disponíveis) <img src="https://img.shields.io/badge/Setup-Ambiente-4479A1?style=flat-square&logo=databricks&logoColor=blue" height="16"/>
 │
 ├── license/
-│   └── license (MIT)<img src="https://img.shields.io/badge/⚖️%20License-MIT-FFA500?style=for-the-badge&logoColor=white" height="21"/>
+│   └── license (MIT) <img src="https://img.shields.io/badge/Legal-⚖️MIT-yellow?style=flat-square&logo=mit&logoColor=black" height="16"/>
 │
-├── readme.md <img src="https://img.shields.io/badge/Markdown-FFFFFF?style=flat-square&logo=markdown&logoColor=black" height="14"/>
-│
-└── SQLtools <img src="https://skillicons.dev/icons?i=mysql,postgresql,sqlite" width="45"/>/
-        └── (MySQL, PostgreSQL e SQLite disponíveis)
+└── README.md <img src="https://img.shields.io/badge/Markdown-FFFFFF?style=flat-square&logo=markdown&logoColor=black" height="16"/>
 </pre>
 
 <h2 align="center">🎯 Objetivo do Repositório:</h2>
@@ -104,13 +99,11 @@ Este repositório tem como objetivo aprofundar os conhecimentos em <strong>SQL</
 <h2 align="center">⛏️💻 Ferramentas Utilizadas:</h2>
 
 <div align="center">
-  <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/vscode/vscode-original.svg" width="32"/> <br>
-
-  <img src="https://img.shields.io/badge/MySQL-4479A1?style=for-the-badge&logo=mysql&logoColor=white" height="28"/>
-  <img src="https://img.shields.io/badge/PostgreSQL-4169E1?style=for-the-badge&logo=postgresql&logoColor=white" height="28"/>
-  <img src="https://img.shields.io/badge/SQLite-003B57?style=for-the-badge&logo=sqlite&logoColor=white" height="28"/>
-  <img src="https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white" height="28"/> <br>
-
-  <img src="https://img.shields.io/badge/Versionamento-Git-F05032?style=for-the-badge&logo=git&logoColor=orange&labelColor=black" height="28"/>
-  <img src="https://img.shields.io/badge/Plataforma-GitHub-181717?style=for-the-badge&logo=github&logoColor=white&labelColor=black" height="28"/>
+<img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/vscode/vscode-original.svg" height="28"/> <br>
+  <img src="https://img.shields.io/badge/-SQL-111827?style=flat-square&logo=mysql&logoColor=white"/>
+  <img src="https://img.shields.io/badge/-PostgreSQL-111827?style=flat-square&logo=postgresql&logoColor=336791"/>
+  <img src="https://img.shields.io/badge/-SQLite-111827?style=flat-square&logo=sqlite&logoColor=white"/>
+  <img src="https://img.shields.io/badge/-Docker-111827?style=flat-square&logo=docker&logoColor=2496ED"/> <br>
+  <img src="https://img.shields.io/badge/-Git-111827?style=flat-square&logo=git&logoColor=F05032"/>
+  <img src="https://img.shields.io/badge/-GitHub-111827?style=flat-square&logo=github&logoColor=white"/>
 </div>

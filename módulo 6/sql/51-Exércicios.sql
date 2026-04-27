@@ -4,6 +4,8 @@
 🔗 JOINS NO SQL SERVER
 ===========================================================
 
+
+
 🎯 OBJETIVO:
 Os JOINs permitem combinar informações de duas ou mais
 tabelas através de uma coluna em comum (chave).
@@ -15,6 +17,9 @@ Tipos principais:
 
 Agora é sua vez!! 🚀
 */
+
+/* Todas as Bases de Dados são fictícias e eliminadas após a resolução dos exércicios*/
+
 
 /* ===========================================================
 1️⃣ INNER JOIN - Produto e Subcategoria

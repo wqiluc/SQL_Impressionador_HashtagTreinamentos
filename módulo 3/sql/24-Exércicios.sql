@@ -6,6 +6,8 @@
 -- As consultas representam apenas a lógica em SQL
 -- =========================================================
 
+/* Todas as Bases de Dados são fictícias e eliminadas após a resolução dos exércicios*/
+
 -- =========================================================
 -- 🧠 EXERCÍCIO 1
 -- TOP 100 vendas por valor total

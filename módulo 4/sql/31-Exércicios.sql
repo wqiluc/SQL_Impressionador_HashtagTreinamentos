@@ -8,6 +8,8 @@
 -- • O foco é demonstrar o raciocínio em SQL
 -- =========================================================
 
+/* Todas as Bases de Dados são fictícias e eliminadas após a resolução dos exércicios*/
+
 -- =========================================================
 -- 🧠 EXERCÍCIO 1
 -- Análise de vendas e devoluções por canal

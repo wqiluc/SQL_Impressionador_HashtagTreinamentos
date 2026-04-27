@@ -11,6 +11,8 @@
 -- Funções de Agregação.
 -- =========================================================
 
+/* Todas as Bases de Dados são fictícias e eliminadas após a resolução dos exércicios*/
+
 USE 
     dados_modulo5_res;
 

@@ -6,6 +6,8 @@
   =============================================================================
 */
 
+/* Todas as Bases de Dados são fictícias e eliminadas após a resolução dos exércicios*/
+
 -- 🚀 [1. FACT SALES] --
 
 -- a) Faça um resumo da quantidade vendida (Sales Quantity) de acordo com o Id do canal 

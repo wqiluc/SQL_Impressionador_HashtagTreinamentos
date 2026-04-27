@@ -12,6 +12,8 @@
 -- Controle de dados de clientes e produtos
 -- =========================================================
 
+/* Todas as Bases de Dados são fictícias e eliminadas após a resolução dos exércicios*/
+
 -- 1.a Verificar se existem exatamente 2.517 produtos cadastrados
 -- Caso o número seja diferente, reportar ao gestor
 --

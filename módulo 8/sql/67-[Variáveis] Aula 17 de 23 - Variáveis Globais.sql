@@ -1,11 +1,10 @@
 -- [SQL Server] Variáveis
--- Aula 17 de 23: Variáveis Globais
+-- Aula 17 de 23: Variáveis Globais 🌐
 
+SELECT @@SERVERNAME;
 
-SELECT @@SERVERNAME
+SELECT @@VERSION;
 
-SELECT @@VERSION
+SELECT * FROM DimProduct;
 
-
-SELECT * FROM DimProduct
-SELECT @@ROWCOUNT
+SELECT @@ROWCOUNT;

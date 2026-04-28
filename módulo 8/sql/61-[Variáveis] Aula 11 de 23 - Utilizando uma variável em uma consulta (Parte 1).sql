@@ -6,23 +6,29 @@
 
  Objetivo: Aplicar um desconto variável a todos os produtos de uma tabela.
  A grande vantagem aqui é a facilidade de manutenção: mudando o valor da 
- variável @varDesconto, toda a consulta é atualizada automaticamente.
+ variável @Desconto, toda a consulta é atualizada automaticamente.
 */
 
 -- 1️⃣ DECLARAÇÃO E ATRIBUIÇÃO
 -- Definimos o desconto como 0.1 (que representa 10%)
-DECLARE @varDesconto FLOAT;
-SET @varDesconto = 0.1;
+DECLARE 
+    @Preço FLOAT;
+DECLARE 
+    @Desconto FLOAT;
+SET 
+    @Preço = 100;
+SET 
+    @Desconto = 0.10; /* 10% de desconto*/
 
 -- 2️⃣ CONSULTA DINÂMICA
-SELECT 
+SELECT DISTINCT 
     ProductKey AS 'ID',
     ProductName AS 'Nome do Produto',
-    UnitPrice AS 'Preço Original',
+    Preço AS 'Preço Original';
     
-    -- O cálculo: Preço * (1 - 0.1) é o mesmo que calcular 90% do valor.
+    -- O cálculo: Preço * (1 - 0.10) é o mesmo que calcular 90% do valor.
     -- Isso garante que, se o desconto mudar, o cálculo se ajusta sozinho.
-    UnitPrice * (1 - @varDesconto) AS 'Preço com Desconto'
+    @Preço * (1 - @Desconto) AS 'Preço com Desconto'
 FROM 
     DimProduct;
 

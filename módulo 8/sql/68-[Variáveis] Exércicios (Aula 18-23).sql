@@ -13,7 +13,29 @@
 */
 -- Resposta Aqui: 👇
 
+DECLARE 
+   @valor1 INT = 10,
+   @valor2 INT = 5,
+   @valor3 INT = 34,
+   @valor4 INT = 7;
 
+DECLARE 
+   @soma INT,
+   @subtracao INT,
+   @multiplicacao INT,
+   @divisao DECIMAL(10,2);
+
+SET @soma = @valor1 + @valor2;
+SET @subtracao = @valor3 - @valor1;
+SET @multiplicacao = @valor2 * @valor4;
+
+SET @divisao = ROUND(CAST(@valor3 AS DECIMAL(10,2)) / @valor4, 2);
+
+SELECT 
+    @soma AS "Resultado_Soma", 
+    @subtracao AS "Resultado_Subtracao", 
+    @multiplicacao AS "Resultado_Multiplicação", 
+    @divisao AS "Resultado_Divisão";
 
 
 -- 2️⃣ EXERCÍCIO 02: Declaração e Cálculo
@@ -24,8 +46,23 @@
 */
 -- Resposta Aqui: 👇
 
+DECLARE 
+   @produto VARCHAR(100) = 'Celular',
+   @quantidade INT = 12,
+   @preco DECIMAL(10, 2) = 9.99,
+   @faturamento DECIMAL(10, 2);
 
+SET 
+   @faturamento = @quantidade * @preco;
 
+SELECT DISTINCT
+    @produto AS "Produto", 
+    @quantidade AS "Quantidade", 
+    @preco AS "Preco Unitario (R$)", 
+    @faturamento AS "Faturamento Total";
+
+PRINT("O " + @produto + " custa R$ " + CAST(@preco AS VARCHAR(10)) +
+      " e o faturamento total é de R$ ") + CAST(@faturamento AS VARCHAR(10));
 
 -- 3️⃣ EXERCÍCIO 03: Manipulação de Dados (CAST e FORMAT)
 /* Instruções:
@@ -35,6 +72,23 @@
 -- Resposta Aqui: 👇
 
 
+DECLARE 
+   @nomeusuario varchar (100);
+SET 
+   @nomeusuario = "André";
+
+DECLARE 
+   @datanascimento DATE;
+SET
+   @datanascimento = "1998-02-10";
+
+DECLARE 
+   @qtdpets INT;
+SET
+   @qtdpets = 2;
+
+SELECT DISTINCT 
+   ("O usuário " + @nome + " nasceu em " + FORMAT(@data_nascimento, "dd/MMMM/yyyy") + " e possui " + CAST(@num_pets AS VARCHAR(10)) + " pets." AS Frase_Formatada);
 
 
 -- 4️⃣ EXERCÍCIO 04: Controle de Qualidade (PRINT)
@@ -46,6 +100,13 @@
 -- Resposta Aqui: 👇
 
 
+DECLARE @lista_lojas VARCHAR(MAX) = '';
+
+SELECT @lista_lojas = @lista_lojas + StoreName + ', '
+FROM DimStore
+WHERE ClosedYear = 2008;
+
+PRINT ("As lojas fechadas no ano de 2008 foram: " + @lista_lojas);
 
 
 -- 5️⃣ EXERCÍCIO 05: Filtro Dinâmico
@@ -54,3 +115,16 @@
    Realize um SELECT na tabela 'DimProduct' usando essa variável no WHERE.
 */
 -- Resposta Aqui: 👇
+
+
+DECLARE 
+   @filtrocategoria VARCHAR(50);
+SET 
+   @filtrocategoria = 'Lamps';
+
+SELECT 
+   *
+FROM 
+   DimProduct
+WHERE 
+   (Category = @filtrocategoria);

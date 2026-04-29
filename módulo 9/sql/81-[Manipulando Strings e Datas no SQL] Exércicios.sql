@@ -6,7 +6,6 @@
 
 /* Todas as Bases de Dados são fictícias e eliminadas após a resolução dos exércicios*/
 
-
 /*
 --------------------------------------------------------------------------------
  🛒 EXERCÍCIO 1: ANÁLISE DE PRODUTOS (DimProduct)
@@ -15,18 +14,48 @@
  longos podem prejudicar a visualização.
 
  a) Liste todos os produtos com: (1) Nome do produto e (2) Quantidade de 
-    caracteres. Ordene do maior para o menor.
- b) Qual é a média de caracteres dos nomes dos produtos?
+    caracteres. Ordene do maior para o menor.✅
+ b) Qual é a média de caracteres dos nomes dos produtos?✅
  c) Verifique se há informações redundantes nos nomes que permitam reduzir 
-    seu tamanho (Dica: Use REPLACE).
- d) Qual a nova média de caracteres após a redução?
+    seu tamanho (Dica: Use REPLACE).✅
+ d) Qual a nova média de caracteres após a redução?✅
 
  -- Responda Aqui: 👇
 */
 
+SELECT 
+   * 
+FROM 
+   DimProduct;
 
+--a)
+SELECT 
+    ProductName AS 'Nome do Produto',
+    LENGTH(ProductName) AS 'QTD de Caracteres'
+FROM 
+    DimProduct
+ORDER BY 
+    LENGTH(ProductName) DESC;
 
+--b)
+SELECT DISTINCT
+   AVG(LENGTH(ProductName)) as "Média de Caracteres"
+FROM
+   DimProduct;
 
+--c)
+SELECT DISTINCT
+    ProductName AS 'Nome Original do Produto',
+    REPLACE(ProductName, 'Special Edition', 'S.E.') AS 'Nome Reduzido',
+    LENGTH(REPLACE(ProductName, 'Special Edition', 'S.E.')) AS 'Nova QTD'
+FROM 
+    DimProduct;
+
+--d)
+SELECT DISTINCT 
+    AVG(LENGTH(REPLACE(ProductName, 'Special Edition', 'S.E.'))) AS 'Nova Média'
+FROM 
+    DimProduct;
 
 /*
 --------------------------------------------------------------------------------
@@ -42,8 +71,18 @@
  -- Responda Aqui: 👇
 */
 
+SELECT 
+   *
+FROM
+   DimProduct;
 
-
+SELECT DISTINCT
+   ProductKey AS "Id do Produto",
+   ProductName AS "Nome do Produto",
+   StyleName AS "Padrão Original (números)",
+   TRANSLATE(StyleName, '0123456789', 'ABCDEFGHIJ') AS "Padrão Novo (Alfabeto)"
+FROM
+   DimProduct;
 
 /*
 --------------------------------------------------------------------------------
@@ -61,8 +100,18 @@
  -- Responda Aqui: 👇
 */
 
+SELECT
+   *
+FROM
+   DimEmployee;
 
-
+SELECT 
+    CONCAT(FirstName + " " + LastName) AS 'Nome Completo',
+    EmailAddress AS 'E-mail',
+    LEFT(EmailAddress + LOCATE('@', EmailAddress) - 1) AS "Login do usuário",
+    CONCAT(UPPER(FirstName) + DAYOFYEAR(BirthDate)) AS "Senha do usuário"
+FROM 
+    DimEmployee;
 
 /*
 --------------------------------------------------------------------------------
@@ -78,9 +127,19 @@
  -- Responda Aqui: 👇
 */
 
+SELECT 
+   *
+FROM
+   DimCustomer;
 
-
-
+SELECT DISTINCT
+    FirstName AS 'Nome',
+    EmailAddress AS 'E-mail do usuário',
+    DATE_FORMAT(DateFirstPurchase, '%Y/%M/%d') AS 'Data Formatada'
+FROM 
+    DimCustomer
+WHERE 
+    YEAR(DateFirstPurchase) = 2001;
 
 /*
 --------------------------------------------------------------------------------
@@ -97,9 +156,17 @@
  -- Responda Aqui: 👇
 */
 
+SELECT 
+   *
+FROM
+   DimEmployee;
 
-
-
+SELECT DISTINCT
+   FirstName as "Nome",
+   EmailAddress as "E-mail",
+   DATE_FORMAT(HireDate, "%Y/%M/%d") as "Data formatada"
+FROM
+   DimEmployee;
 
 /*
 --------------------------------------------------------------------------------
@@ -113,5 +180,18 @@
  -- Responda Aqui: 👇
 */
 
+SELECT 
+   *
+FROM
+   DimStore;
 
 
+SELECT DISTINCT
+    StoreName AS 'Nome da Loja',
+    OpenDate AS 'Data de Abertura da Loja',
+    DATEDIFF(NOW(), OpenDate) AS 'Dias de Atividade'
+FROM 
+    DimStore
+ORDER BY 
+    DATEDIFF(NOW(), OpenDate) DESC
+LIMIT 1;

@@ -32,10 +32,8 @@
 
 SELECT DISTINCT
     'SQL Hashtag' AS 'Texto Original',
-    LEN('SQL Hashtag') AS 'Len (Comprimento)',               
-	-- Conta caracteres, ignora espaços finais
-    DATALENGTH('SQL Hashtag') AS 'Datalength'; 
-	-- Conta bytes, inclui tudo
+    LEN('SQL Hashtag') AS 'Len (Comprimento)', -- Conta caracteres, ignora espaços finais
+    DATALENGTH('SQL Hashtag') AS 'Datalength'; -- Conta bytes, inclui tudo
 
 /*
 ================================================================================

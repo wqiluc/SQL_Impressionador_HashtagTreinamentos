@@ -5,6 +5,8 @@
 ================================================================================
 */
 
+/* Todas as Bases de Dados são fictícias e eliminadas após a resolução dos exércicios*/
+
 -- 1️⃣ EXERCÍCIO 01: Operações Básicas
 /* Instruções:
    Declare as variáveis valor1, valor2, valor3 e valor4 com os valores: 10, 5, 34 e 7.

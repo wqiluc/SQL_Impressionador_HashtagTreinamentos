@@ -1,34 +1,61 @@
--- [SQL Server] Fun��es Condicionais
--- Aula 6 de 18: CASE com os operadores l�gicos AND e OR
+-- ==============================================================================
+-- 🔤 [SQL Server] Funções Condicionais
+-- 📚 Aula 6 de 18: CASE com os operadores lógicos AND e OR
+-- ==============================================================================
+-- Introdução: Podemos combinar a função CASE com operadores lógicos (AND e OR) 
+-- para criar regras de negócio mais complexas baseadas em múltiplas colunas ou 
+-- condições simultâneas.
+-- ==============================================================================
 
--- Fa�a uma consulta � tabela DimProduct e retorne as colunas ProductName, BrandName, ColorName, UnitPrice e uma coluna de pre�o com desconto.
+-- 🔍 Consulta de referência (Tabela de origem)
+-- SELECT * FROM DimProduct;
 
--- a) Caso o produto seja da marca Contoso E da cor Red, o desconto do produto ser� de 10%. Caso contr�rio, n�o ter� nenhum desconto.
+-- ==============================================================================
+-- 📋 Exemplo A: Utilizando o operador lógico AND
+-- ==============================================================================
+-- Objetivo: Caso o produto seja da marca 'Contoso' E da cor 'Red', o desconto será de 10% (0.1).
+-- Caso contrário, não terá desconto (0).
 
-
-SELECT
-	ProductName,
-	BrandName,
-	ColorName,
-	UnitPrice,
-	CASE
-		WHEN BrandName = 'Contoso' AND ColorName = 'Red' THEN 0.1
-		ELSE 0
-	END AS 'Pre�o com desconto'
+SELECT DISTINCT
+    ProductName AS "Nome do Produto", -- 🏷️ Nome do produto
+    BrandName AS "Nome da Marca", -- 🏢 Marca do produto
+    ColorName AS "Cor do Produto", -- 🎨 Cor do produto
+    UnitPrice AS "Preco Unitário", -- 💰 Preço original do produto
+    CASE
+        WHEN 
+			BrandName = 'Contoso' 
+			AND 
+			ColorName = 'Red' 
+			THEN 
+				0.10 -- 📉 Desconto de 10%
+        ELSE 
+			0.0 -- ❌ Sem desconto
+    END AS 
+		"Preco Com Desconto A" -- 🏷️ Taxa de desconto calculada
 FROM
-	DimProduct
+    DimProduct;
 
+-- ==============================================================================
+-- 📋 Exemplo B: Utilizando o operador lógico OR
+-- ==============================================================================
+-- Objetivo: Caso o produto seja da marca 'Litware' OU 'Fabrikam', o desconto será de 5% (0.05).
+-- Caso contrário, não terá desconto (0).
 
--- b) Caso o produto seja da marca Litware OU Fabrikam, ele receber� um desconto de 5%. Caso contr�rio, n�o ter� nenhum desconto.
-
-SELECT
-	ProductName,
-	BrandName,
-	ColorName,
-	UnitPrice,
-	CASE
-		WHEN BrandName = 'Contoso' OR BrandName = 'Fabrikam' THEN 0.05
-		ELSE 0
-	END AS 'Pre�o com desconto'
+SELECT DISTINCT
+    ProductName AS "Nome do Produto", -- 🏷️ Nome do produto
+    BrandName AS "Nome da Marca", -- 🏢 Marca do produto
+    ColorName AS "Cor do Produto", -- 🎨 Cor do produto
+    UnitPrice AS "Preco Unitário", -- 💰 Preço original do produto
+    CASE
+        WHEN 
+			BrandName = 'Litware' 
+      OR 
+      BrandName = 'Fabrikam' 
+			THEN 
+        0.05 -- 📉 Desconto de 5%
+        ELSE 
+          0.0-- ❌ Sem desconto
+    END AS 
+		"Preco Com Desconto B" -- 🏷️ Taxa de desconto calculada
 FROM
-	DimProduct
+    DimProduct;

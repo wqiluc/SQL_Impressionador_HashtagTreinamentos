@@ -1,37 +1,67 @@
--- [SQL Server] Fun��es Condicionais
--- Aula 2 de 18: CASE WHEN... ELSE (Explica��o)
-
--- Introdu��o: A fun��o CASE permite tratar condi��es no SQL
+-- ==============================================================================
+-- 🔤 [SQL Server] Funções Condicionais
+-- 📚 Aula 2 de 18: CASE WHEN... ELSE (Explicação)
+-- ==============================================================================
+-- Introdução: A função CASE permite tratar condições no SQL, avaliando testes 
+-- lógicos e retornando valores específicos.
+-- ==============================================================================
 
 /*
+Estrutura básica:
 CASE
-	WHEN teste_logico THEN 'resultado1'
-	ELSE 'resultado2'
+    WHEN teste_logico THEN 'resultado1'
+    ELSE 'resultado2'
 END
 */
 
--- Exemplo 1: Determine a situa��o do aluno. Se a M�dia for >= 6, ent�o est� aprovado. Caso contr�rio, reprovado.
+-- ==============================================================================
+-- 📋 Exemplo 1: Avaliação de Situação do Aluno
+-- ==============================================================================
+-- Objetivo: Determinar se o aluno está aprovado ou reprovado com base na nota.
 
 DECLARE 
-	@rNota FLOAT
+    Nota FLOAT; -- 🔢 Declaração da variável que armazena a nota
+
 SET 
-	@varNota = 6
+    @Nota = 7.0; -- 🎯 Atribuindo valor à variável (usando ponto decimal para precisão)
 
 SELECT
-	CASE
-		WHEN @varNota >= 6 THEN 'Aprovado'
-		ELSE 'Reprovado'
-	END AS 'Situa��o'
+    @Nota AS "Nota Informada", -- 📊 Exibe a nota que está sendo analisada
+    CASE
+        WHEN 
+            @Nota >= 7.0 
+		THEN 
+            'Aprovado' -- 🟢 Se a nota for >= 6, retorna 'Aprovado'
+        ELSE 
+            'Reprovado' -- 🔴 Caso contrário, retorna 'Reprovado'
+    END AS 
+        "Situação do Aluno"; 
+	-- 🏷️ Nome da coluna de saída
 
+-- ==============================================================================
+-- 📅 Exemplo 2: Verificação de Validade do Produto
+-- ==============================================================================
+-- Objetivo: Comparar a data de vencimento com a data atual para verificar o status.
 
--- Exemplo 2: A data de vencimento de um produto � no dia 10/03/2022. Fa�a um teste l�gico para verificar se um produto passou da validade ou n�o.
+DECLARE 
+    @DataVencimento DATETIME, -- 🗓️ Data limite de validade do produto
+    @DataAtual DATETIME; -- ⏱️ Data de referência atual
 
-DECLARE @varDataVencimento DATETIME, @varDataAtual DATETIME
-SET @varDataVencimento = '10/03/2025'
-SET @varDataAtual = '30/04/2022'
+-- Atribuindo os valores às variáveis (formato 'YYYY-MM-DD' para evitar problemas de idioma)
+SET 
+    @DataVencimento = '2025-03-10'; 
+SET 
+    @DataAtual = '2022-04-30';
 
-SELECT
-	CASE
-		WHEN @varDataAtual > @varDataVencimento THEN 'Produto Vencido'
-		ELSE 'Na validade'
-	END
+SELECT DISTINCT
+    @DataVencimento AS "Data Vencimento", -- 🗓️ Exibe a data de vencimento
+    @DataAtual AS "Data Atual", -- ⏱️ Exibe a data de verificação
+    CASE
+        WHEN 
+            @DataAtual > @DataVencimento 
+		THEN 
+            'Produto Vencido' -- ⚠️ Condição: A data atual é maior que a de vencimento
+        ELSE 
+            'Na validade' -- ✅ Condição: O produto ainda está no prazo
+    END AS 
+		"Status de Validade"; -- 🏷️ Nome da coluna de saída

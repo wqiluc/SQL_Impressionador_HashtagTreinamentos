@@ -1,21 +1,75 @@
--- [SQL Server] Fun��es Condicionais
--- Aula 8 de 18: CASE Aditivo
+-- ==============================================================================
+-- 🔤 [SQL Server] Funções Condicionais
+-- 📚 Aula 8 de 18: CASE Aditivo (Additive CASE)
+-- ==============================================================================
+-- Introdução: O CASE aditivo permite somar os resultados de múltiplos blocos 
+-- CASE para compor um valor final. Isso é muito útil quando queremos aplicar 
+-- descontos ou regras que são cumulativos baseados em diferentes categorias.
+-- ==============================================================================
 
--- Os produtos da categoria 'TV and Video' ter�o um desconto de 10%
--- Se al�m de ser da categoria 'TV and Video', o produto for da subcategoria 'Televisions', receber� mais 5%. Total, 15%
+-- 🔍 Consulta de referência (Tabelas de origem)
+-- SELECT * FROM DimProduct;
+-- SELECT * FROM DimProductSubcategory;
+-- SELECT * FROM DimProductCategory;
 
-SELECT
-	ProductKey,
-	ProductName,
-	ProductCategoryName,
-	ProductSubcategoryName,	
-	UnitPrice,
-	CASE WHEN ProductCategoryName = 'TV and Video' 
-		THEN 0.10 ELSE 0.00 END
-	+ CASE WHEN ProductSubCategoryName = 'Televisions' 
-		THEN 0.05 ELSE 0.00 END
-FROM DimProduct
-INNER JOIN DimProductSubcategory
-	ON DimProduct.ProductSubcategoryKey = DimProductSubcategory.ProductSubcategoryKey
-		INNER JOIN DimProductCategory
-			ON DimProductSubcategory.ProductCategoryKey = DimProductCategory.ProductCategoryKey
+-- ==============================================================================
+-- 📋 Execução do Exemplo: Cálculo de Desconto Acumulativo
+-- ==============================================================================
+-- Regras:
+-- - Categoria 'TV and Video' = + 10% (0.10)
+-- - Subcategoria 'Televisions' (pertencente à categoria) = + 5% (0.05)
+-- ==============================================================================
+
+SELECT DISTINCT
+    ProductKey AS "ID do Produto", -- 🆔 Identificador único do produto
+    ProductName AS "Nome do Produto", -- 🏷️ Nome do produto
+    ProductCategoryName AS "Categoria", -- 🏢 Categoria do produto
+    ProductSubcategoryName AS "Subcategoria", -- 📦 Subcategoria do produto
+    UnitPrice AS Preco_Unitario, -- 💰 Preço original do produto
+    (
+        CASE 
+            WHEN ProductCategoryName = 'TV and Video' 
+			THEN 
+				0.10 
+            ELSE 
+				0.00 
+        END
+        + 
+        CASE 
+            WHEN ProductSubcategoryName = 'Televisions' 
+			THEN 
+				0.05 
+            ELSE 
+				0.00 
+        END
+    ) AS "Percentual de Desconto", -- 🏷️ Percentual de desconto total (ex: 0.10, 0.05 ou 0.15)
+    
+    -- 💵 Calculando o valor final do produto com o desconto aplicado
+    UnitPrice * 
+	(1 - 
+        (
+            CASE 
+                WHEN ProductCategoryName = 'TV and Video' 
+				THEN 
+					0.10 
+                ELSE 
+					0.00 
+            END 
+            + 
+            CASE 
+                WHEN ProductSubcategoryName = 'Televisions' 
+				THEN 
+					0.05 
+                ELSE 
+					0.00 
+            END
+        )
+    ) AS "Preco Com Desconto"
+FROM 
+    DimProduct
+INNER JOIN 
+    DimProductSubcategory 
+    ON DimProduct.ProductSubcategoryKey = DimProductSubcategory.ProductSubcategoryKey
+INNER JOIN 
+    DimProductCategory 
+    ON DimProductSubcategory.ProductCategoryKey = DimProductCategory.ProductCategoryKey;

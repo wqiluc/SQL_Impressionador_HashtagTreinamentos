@@ -1,22 +1,32 @@
--- [SQL Server] Fun��es Condicionais
--- Aula 10 de 18: ISNULL - Tratando valores nulos
+-- ==============================================================================
+-- 🔤 [SQL Server] Funções Condicionais
+-- 📚 Aula 10 de 18: ISNULL - Tratando valores nulos
+-- ==============================================================================
+-- Introdução: A função ISNULL é usada para substituir valores NULL (ausentes) por 
+-- um valor especificado. Neste exercício, combinamos a lógica de seleção de 
+-- responsáveis usando IIF com um exemplo de como tratar valores nulos.
+-- ==============================================================================
 
--- Exemplo: Existem 3 tipos de estoque: High, Mid e Low. Fa�a um SELECT contendo as colunas de ProductKey, ProductName, StockTypeName e Nome do respons�vel pelo produto, de acordo com o tipo de estoque. A regra dever� ser a seguinte:
--- Jo�o � respons�vel pelos produtos High
--- Maria � respons�vel pelos produtos Mid
--- Luis � respons�vel pelos produtos Low
-
-SELECT
-	ProductKey,
-	ProductName,
-	iif(
-		StockTypeName = 'High',
-		'Jo�o',
-		IIF(
-			StockTypeName = 'Mid',
-			'Maria',
-			'Luis')
-			) AS 'Respons�vel'
-
+SELECT DISTINCT
+    ProductKey AS "ID do Produto", -- 🆔 Identificador único do produto
+    ProductName AS "Nome do Produto", -- 🏷️ Nome do produto
+    StockTypeName AS "Tipo do Estoque", -- 📦 Tipo de estoque (High, Mid, Low)
+    IIF
+	(
+        StockTypeName = 'High',
+        'João',
+        IIF
+		(
+            StockTypeName = 'Mid',
+            'Maria',
+            'Luis' -- Low = Luis, se não se encaixar em nenhum IIF
+        )
+    ) AS 
+		"Responsável", 
+		CASE ISNULL
+	(
+		StockTypeName, 'Não Definido'
+	) 
+		AS "Tipo de Estoque Tratado" -- 🛡️ Tratamento de nulos
 FROM
-	DimProduct
+    DimProduct; -- 🏢 Tabela de onde os dados são extraídos

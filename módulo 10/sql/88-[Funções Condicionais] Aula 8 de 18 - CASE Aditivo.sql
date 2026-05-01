@@ -8,6 +8,7 @@
 -- ==============================================================================
 
 -- 🔍 Consulta de referência (Tabelas de origem)
+
 -- SELECT * FROM DimProduct;
 -- SELECT * FROM DimProductSubcategory;
 -- SELECT * FROM DimProductCategory;
@@ -28,7 +29,8 @@ SELECT DISTINCT
     UnitPrice AS Preco_Unitario, -- 💰 Preço original do produto
     (
         CASE 
-            WHEN ProductCategoryName = 'TV and Video' 
+            WHEN 
+                ProductCategoryName = 'TV and Video' 
 			THEN 
 				0.10 
             ELSE 
@@ -36,7 +38,8 @@ SELECT DISTINCT
         END
         + 
         CASE 
-            WHEN ProductSubcategoryName = 'Televisions' 
+            WHEN 
+                ProductSubcategoryName = 'Televisions' 
 			THEN 
 				0.05 
             ELSE 

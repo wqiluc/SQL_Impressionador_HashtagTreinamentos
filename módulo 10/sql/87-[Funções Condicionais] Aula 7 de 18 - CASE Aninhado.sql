@@ -8,6 +8,7 @@
 -- ==============================================================================
 
 -- 🔍 Consulta de referência (Tabela de origem)
+
 -- SELECT * FROM DimEmployee;
 
 -- ==============================================================================
@@ -35,7 +36,7 @@ SELECT DISTINCT
         WHEN 
 			Title = 'Sales State Manager' 
 		THEN 
-			0.07 -- 📉 Bônus de 7% para este cargo
+			0.07 -- 📉 Bônus de 7 % para este cargo
         ELSE 
 			0.02 -- 🛒 Bônus de 2% para os demais (ex: Sales Store Manager)
     END AS "Bônus Percentual" -- 🏷️ Nova coluna calculada com o percentual de bônus

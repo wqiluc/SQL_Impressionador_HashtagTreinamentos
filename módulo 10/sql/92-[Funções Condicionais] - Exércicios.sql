@@ -18,27 +18,114 @@
 --
 -- Responda Aqui: 👇
 
+SELECT 
+    *
+FROM
+    DimProduct
+LIMIT 20;
 
+DECLARE 
+    @Economico FLOAT,
+    @Regular FLOAT,
+    @Deluxe FLOAT;
 
+SET @Economico = 0.05,
+    @Regular = 0.07
+    @Deluxe = 0.09;
 
-
+SELECT DISTINCT
+    ProductKey as "Id do Produto",
+    ProductName as "Nome do Produto",
+    ClassName as "Classe do Produto",
+    UnitPrice as "Preço Unitário",
+    CASE 
+        WHEN 
+            ClassName = 'Economy' 
+        THEN 
+            @Economico
+        WHEN 
+            ClassName = 'Regular' 
+        THEN 
+            @Regular
+        WHEN 
+            ClassName = 'Deluxe' 
+        THEN 
+            @Deluxe
+        ELSE 
+            0 
+    END AS 
+        "Percentual de Desconto",
+    CASE 
+        WHEN 
+            ClassName = 'Economy' 
+        THEN 
+            UnitPrice * (1 - @Economico)
+        WHEN 
+            ClassName = 'Regular' 
+        THEN 
+            UnitPrice * (1 - @Regular)
+        WHEN 
+            ClassName = 'Deluxe'  
+        THEN 
+            UnitPrice * (1 - @Deluxe)
+        ELSE 
+            UnitPrice 
+    END AS 
+        "Preço com Desconto"
+FROM
+    DimProduct
+LIMIT 20;
 
 -- ==============================================================================
 -- 📋 Exercício 2: Controle de Produtos por Marca
 -- ==============================================================================
 -- • Enunciado: Análise da quantidade de produtos por Marca.
 -- • Regras de Categoria:
---   - CATEGORIA A: Mais de 500 produtos
---   - CATEGORIA B: Entre 100 e 500 produtos
---   - CATEGORIA C: Menos de 100 produtos
--- • Requisitos: Retornar uma tabela com um agrupamento de Total de Produtos por Marca, além da coluna de Categoria, conforme a regra.
+--   - CATEGORIA A: Contoso
+--   - CATEGORIA B: Litware ou Fabrikam
+--   - CATEGORIA C: Outro
+-- • Requisitos: Retornar uma tabela com um agrupamento de Produtos por Marca, além da coluna de Categoria, conforme a regra.
 --
 -- Responda Aqui: 👇
 
 
+SELECT 
+    *
+FROM
+    DimProduct
+LIMIT 20;
 
+DECLARE 
+    @Contoso VARCHAR(20) = 'CATEGORIA A',
+    @Litware VARCHAR(20) = 'CATEGORIA B',
+    @Fabrikam VARCHAR(20) = 'CATEGORIA B',
+    @Outras VARCHAR(20) = 'CATEGORIA C';
 
-
+SELECT DISTINCT
+    BrandName AS "Marca do Produto",
+    COUNT(ProductKey) AS "Qtd de Produtos",
+    CASE
+        WHEN 
+            BrandName = 'Contoso'  
+        THEN 
+            @Contoso
+        WHEN 
+            BrandName = 'Litware' 
+        THEN 
+            @Litware
+        WHEN 
+            BrandName = 'Fabrikam' 
+        THEN 
+            @Fabrikam
+        ELSE 
+            @Outras
+    END AS 
+        "Categoria"
+FROM
+    DimProduct
+GROUP BY 
+    BrandName
+LIMIT 20;
 
 -- ==============================================================================
 -- 📋 Exercício 3: Categorização de Lojas
@@ -56,10 +143,50 @@
 -- Responda Aqui: 👇
 
 
+SELECT 
+    *
+FROM
+    DimStore;
 
+DECLARE
+    @ContagemA INT,
+    @ContagemB INT,
+    @ContagemC INT,
+    @ContagemD INT,
+    @ContagemE INT;
 
+SET @ContagemA = 50;
+SET @ContagemB = 40;
+SET @ContagemC = 30;
+SET @ContagemD = 20;
+SET @ContagemE = 10;
 
-
+SELECT DISTINCT
+    StoreName AS "Nome da Loja",
+    EmployeeCount AS "Qtd Funcionários",
+    IF
+    (
+        EmployeeCount >= @ContagemA, 'Acima de 50 funcionários',
+        IF
+        (EmployeeCount >= @ContagemB, 'Entre 40 e 50 funcionários',
+            IF
+            (
+                EmployeeCount >= @ContagemC, 'Entre 30 e 40 funcionários',
+                IF
+                (
+                    EmployeeCount >= @ContagemD, 'Entre 20 e 30 funcionários',
+                    IF
+                    (
+                        EmployeeCount >= @ContagemE, 'Entre 10 e 20 funcionários', 
+                    'Abaixo de 10 funcionários'
+                    )
+                )
+            )
+        )
+    ) AS 
+        "Categoria"
+FROM
+    DimStore;
 
 -- ==============================================================================
 -- 📋 Exercício 4: Logística - Distribuição de Peso por Subcategoria

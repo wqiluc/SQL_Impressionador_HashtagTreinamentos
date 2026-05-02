@@ -4,7 +4,6 @@
 -- Introdução: Detalhamento de cada questão para a resolução dos exercícios.
 -- ==============================================================================
 
-
 /* Todas as Bases de Dados são fictícias e eliminadas após a resolução dos exércicios*/
 
 -- ==============================================================================
@@ -202,12 +201,36 @@ FROM
 --
 -- Responda Aqui: 👇
 
+SELECT 
+    *
+FROM
+    DimProduct
+LIMIT 10;
 
+SELECT 
+    *
+FROM
+    DimProductSubcategory;
 
-
-
-
-
+SELECT DISTINCT
+    ProductSubcategory.ProductSubcategoryName AS "Nome da Subcategoria",
+    AVG(Product.UnitWeight) * 100 AS "Peso Total",
+    CASE 
+        WHEN 
+            AVG(Product.UnitWeight) * 100 < 1000 
+        THEN 
+            'Rota 1'
+        ELSE 
+            'Rota 2'
+    END AS 
+        "Rotas"
+FROM 
+    DimProduct as Product
+INNER JOIN 
+    DimProductSubcategory as ProductSubCategory
+    ON Product.ProductSubcategoryKey = ProductSubcategory.ProductSubcategoryKey
+GROUP BY 
+    ProductSubcategory.ProductSubcategoryName;
 
 -- ==============================================================================
 -- 📋 Exercício 5: Campanhas de Marketing
@@ -221,13 +244,37 @@ FROM
 --
 -- Responda Aqui: 👇
 
+SELECT
+    *
+FROM
+    DimCustomer;
 
+DECLARE
+    @Sorteiomae INT,
+    @Sorteiopai INT,
+    @Sorteiocaminhao INT;
 
-
-
-
-
-
+SELECT 
+    CustomerKey AS "Id do(a) Cliente",
+    FirstName AS "Primeiro Nome do(a) Cliente",
+    LastName AS "Sobrenome do Cliente",
+    Gender AS "Gênero do(a) Cliente",
+    TotalChildren AS "QTD. Filhos do(a) Cliente",
+    EmailAddress AS "E-mail do(a) Cliente",
+    CASE
+        WHEN 
+            Gender = 'F' AND TotalChildren > 0 
+        THEN 
+            @Sorteiomae as "Sorteio Mãe"
+        WHEN 
+            Gender = 'M' AND TotalChildren > 0 
+            THEN @Sorteiopai as "Sorteio Pai"
+        ELSE 
+            'Sorteio Caminhão'
+    END AS 
+        "Sorteios"
+FROM
+    DimCustomer;
 
 -- ==============================================================================
 -- 📋 Exercício 6: Maior Tempo de Atividade da Loja (em dias)
@@ -241,8 +288,20 @@ FROM
 -- Responda Aqui: 👇
 
 
+SELECT
+    *
+FROM
+    DimStore
+WHERE
+    CloseDate IS NOT NULL;
 
-
-
-
-
+SELECT DISTINCT
+    StoreKey as "ID da Loja",
+    StoreName as "Nome da Loja",
+    OpenDate as "Data de Abertura",
+    CloseDate as "Data de Encerramento",
+    DATEDIFF(CloseDate,OpenDate) as "Tempo de Atividade (Dias)"
+FROM 
+    DimStore
+WHERE
+    CloseDate IS NOT NULL;

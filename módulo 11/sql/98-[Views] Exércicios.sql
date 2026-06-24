@@ -20,6 +20,7 @@
 
 -- a)
 GO
+
 CREATE VIEW vwProdutos AS
 SELECT
     ProductName AS 'Nome do Produto',
@@ -28,12 +29,14 @@ SELECT
     UnitCost AS 'Custo Unitário'
 FROM
     DimProduct;
+
 GO
 
 SELECT * FROM vwProdutos
 
 -- b)
 GO
+
 CREATE VIEW vwFuncionarios AS
 SELECT
     FirstName AS 'Nome',
@@ -41,12 +44,14 @@ SELECT
     DepartmentName AS 'Departamento'
 FROM
     DimEmployee;
+
 GO
 
-SELECT * FROM vwFuncionarios
+SELECT * FROM vwFuncionarios;
 
 -- c)
 GO
+
 CREATE VIEW vwLojas AS
 SELECT
     StoreKey AS 'ID da Loja',
@@ -54,9 +59,10 @@ SELECT
     OpenDate AS 'Data de Abertura'
 FROM
     DimStore;
+
 GO
 
-SELECT * FROM vwLojas
+SELECT * FROM vwLojas;
 
 -- ==============================================================================
 -- Exercício 2: View com transformações de colunas
@@ -71,6 +77,7 @@ SELECT * FROM vwLojas
 -- Responda Aqui: 👇
 
 GO
+
 CREATE VIEW vwClientes AS
 SELECT
     FirstName + ' ' + LastName AS 'Nome Completo',
@@ -90,6 +97,7 @@ SELECT
     'R$ ' + CONVERT(VARCHAR, FORMAT(YearlyIncome, 'N2')) AS 'Renda Anual'
 FROM
     DimCustomer;
+
 GO
 
 SELECT * FROM vwClientes;
@@ -113,18 +121,22 @@ SELECT * FROM vwClientes;
 
 -- a)
 GO
+
 CREATE VIEW vwLojasAtivas AS
-SELECT 
+SELECT DISTINCT 
     *
 FROM
     DimStore
-WHERE Status = 'On'
+WHERE 
+    Status = 'On';
+
 GO
 
 SELECT * FROM vwLojasAtivas;
 
 -- b)
 GO
+
 CREATE VIEW vwFuncionariosMkt AS
 SELECT
     FirstName AS 'Nome',
@@ -134,20 +146,23 @@ FROM
     DimEmployee
 WHERE 
     DepartmentName = 'Marketing';
+
 GO
 
 SELECT * FROM vwFuncionariosMkt
 
 -- c)
 GO
+
 CREATE VIEW vwContosoLitwareSilver AS
 SELECT *
 FROM
     DimProduct
 WHERE
     BrandName IN ('Contoso', 'Litware')
-    AND 
-        ColorName = 'Silver';
+AND 
+    ColorName = 'Silver';
+
 GO
 
 SELECT * FROM vwContosoLitwareSilver;
@@ -163,17 +178,19 @@ SELECT * FROM vwContosoLitwareSilver;
 -- Responda Aqui: 👇
 
 GO
+
 CREATE VIEW vwTotalVendidoProdutos AS
 SELECT
     Produto.ProductName AS 'Nome do Produto',
     SUM(Vendas.SalesQuantity) AS 'Quantidade Total Vendida'
 FROM
-    FactSales AS Vendas
+    FactSales AS "Vendas"
 INNER JOIN
-    DimProduct AS Produto
+    DimProduct AS "Produto"
         ON Vendas.ProductKey = Produto.ProductKey
 GROUP BY
     Produto.ProductName;
+
 GO
 
 SELECT * FROM vwTotalVendidoProdutos;
@@ -189,6 +206,7 @@ SELECT * FROM vwTotalVendidoProdutos;
 -- Responda Aqui: 👇
 
 -- a) Adiciona BrandName na vwProdutos
+
 ALTER VIEW vwProdutos AS
 SELECT
     ProductName AS 'Nome do Produto',
@@ -198,11 +216,13 @@ SELECT
     BrandName AS 'Marca'
 FROM
     DimProduct;
+
 GO
 
 SELECT * FROM vwProdutos;
 
 -- b) Filtra apenas funcionárias do sexo feminino na vwFuncionarios
+
 ALTER VIEW vwFuncionarios AS
 SELECT
     FirstName AS 'Nome',
@@ -211,11 +231,13 @@ SELECT
 FROM
     DimEmployee
 WHERE Gender = 'F';
+
 GO
 
 SELECT * FROM vwFuncionarios;
 
 -- c) Filtra apenas lojas ativas na vwLojas
+
 ALTER VIEW vwLojas AS
 SELECT
     StoreKey AS 'ID da Loja',
@@ -224,6 +246,7 @@ SELECT
 FROM
     DimStore
 WHERE Status = 'On';
+
 GO
 
 SELECT * FROM vwLojas;
@@ -244,7 +267,9 @@ SELECT * FROM vwLojas;
 -- Responda Aqui: 👇
 
 -- a)
+
 GO
+
 CREATE VIEW vw_6a AS
 SELECT
     BrandName AS 'Marca',
@@ -253,11 +278,13 @@ FROM
     DimProduct
 GROUP BY
     BrandName;
+
 GO
 
 SELECT * FROM vw_6a;
 
 -- b) Adiciona coluna de Peso Total
+
 ALTER VIEW vw_6a AS
 SELECT
     BrandName AS 'Marca',
@@ -267,9 +294,11 @@ FROM
     DimProduct
 GROUP BY
     BrandName;
+
 GO
 
 SELECT * FROM vw_6a;
 
 -- c)
+
 DROP VIEW vw_6a;

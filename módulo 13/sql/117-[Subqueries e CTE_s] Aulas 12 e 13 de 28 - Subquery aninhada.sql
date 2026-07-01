@@ -25,19 +25,22 @@ Execução: de dentro para fora.
 
 -- Passo 1: ver os clientes do tipo 'Person' ordenados por renda
 SELECT * FROM DimCustomer
-WHERE  CustomerType = 'Person'
-ORDER BY YearlyIncome DESC
+WHERE 
+  CustomerType = 'Person'
+ORDER BY 
+  YearlyIncome DESC;
 
 -- Passo 2: os 2 maiores salários distintos
-SELECT DISTINCT TOP(2) YearlyIncome
-FROM   DimCustomer
-WHERE  CustomerType = 'Person'
-ORDER BY YearlyIncome DESC
+SELECT DISTINCT TOP(2) YearlyIncome FROM DimCustomer
+WHERE 
+  CustomerType = 'Person'
+ORDER BY 
+  YearlyIncome DESC;
 
 -- Passo 3: clientes que ganham exatamente o 2º maior (hardcoded)
-SELECT CustomerKey, FirstName, LastName, YearlyIncome
-FROM   DimCustomer
-WHERE  YearlyIncome = 160000
+SELECT CustomerKey, FirstName, LastName, YearlyIncome FROM DimCustomer
+WHERE 
+  YearlyIncome = 160000;
 
 -- ────────────────────────────────────────────────────────────
 -- ✅ Solução com Subquery aninhada (3 níveis)
@@ -52,20 +55,28 @@ WHERE  YearlyIncome = 160000
   3. Query externa → filtra clientes com esse salário
 */
 
-SELECT
+SELECT DISTINCT
     CustomerKey,
     FirstName,
     LastName,
     YearlyIncome
-FROM DimCustomer
-WHERE YearlyIncome = (
+FROM 
+  DimCustomer
+WHERE 
+  YearlyIncome = 
+(
     -- Nível 2: maior salário abaixo do máximo absoluto
     SELECT MAX(YearlyIncome)
-    FROM   DimCustomer
-    WHERE  YearlyIncome < (
+    FROM 
+      DimCustomer
+    WHERE 
+      YearlyIncome < 
+    (
         -- Nível 3: maior salário absoluto
         SELECT MAX(YearlyIncome)
-        FROM   DimCustomer
-        WHERE  CustomerType = 'Person'
+        FROM 
+          DimCustomer
+        WHERE 
+          CustomerType = 'Person'
     )
 )

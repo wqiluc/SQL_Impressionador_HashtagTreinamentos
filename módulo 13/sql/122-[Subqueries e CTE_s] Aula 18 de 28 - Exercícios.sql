@@ -28,16 +28,16 @@ Tabelas disponíveis:
 -- 1️⃣  Retorne todos os produtos cujo preço unitário (UnitPrice)
 --     seja maior que a média de UnitPrice de TODOS os produtos.
 
-SELECT *
-FROM   DimProduct
-WHERE  UnitPrice > (SELECT AVG(UnitPrice) FROM DimProduct)
+SELECT * FROM DimProduct
+WHERE 
+  UnitPrice > (SELECT AVG(UnitPrice) FROM DimProduct)
 
 -- 2️⃣  Retorne os produtos que pertencem à subcategoria 'Laptops'.
 --     (Dica: a coluna ProductSubcategoryName está em DimProductSubcategory)
 
-SELECT *
-FROM   DimProduct
-WHERE  ProductSubcategoryKey = 
+SELECT * FROM DimProduct
+WHERE  
+  ProductSubcategoryKey = 
       (
         SELECT ProductSubcategoryKey
         FROM   DimProductSubcategory
@@ -48,9 +48,9 @@ WHERE  ProductSubcategoryKey =
 --     localizadas em países com mais de 50 funcionários.
 --     (Use a coluna EmployeeCount de DimStore)
 
-SELECT *
-FROM   FactSales
-WHERE  StoreKey IN 
+SELECT * FROM FactSales
+WHERE 
+  StoreKey IN 
 (
         SELECT StoreKey
         FROM   DimStore
@@ -61,10 +61,11 @@ WHERE  StoreKey IN
 --     seja maior que a média de YearlyIncome de todos os clientes
 --     do tipo 'Person'.
 
-SELECT *
-FROM   DimCustomer
-WHERE  CustomerType = 'Person'
-  AND  YearlyIncome > 
+SELECT * FROM DimCustomer
+WHERE 
+  CustomerType = 'Person'
+AND 
+  YearlyIncome > 
           (
            SELECT AVG(YearlyIncome)
            FROM   DimCustomer
@@ -79,12 +80,14 @@ WHERE  CustomerType = 'Person'
 --     e a quantidade total de vendas de cada produto como coluna
 --     adicional 'Qtd. Vendas'. (Use Subquery no SELECT)
 
-SELECT
+SELECT DISTINCT
     ProductKey,
     ProductName,
     (SELECT COUNT(*)
-     FROM   FactSales
-     WHERE  FactSales.ProductKey = DimProduct.ProductKey) AS 'Qtd. Vendas'
+     FROM 
+      FactSales
+     WHERE 
+      FactSales.ProductKey = DimProduct.ProductKey) AS 'Qtd. Vendas'
 FROM DimProduct;
 
 -- 6️⃣  Usando uma Subquery no FROM, retorne a marca (BrandName)
@@ -95,9 +98,9 @@ SELECT BrandName, TotalProdutos
 FROM 
 (
     SELECT
-        BrandName,
-        COUNT(*) AS TotalProdutos
-    FROM   DimProduct
+      BrandName,
+      COUNT(*) AS TotalProdutos
+    FROM DimProduct
     GROUP BY BrandName
 ) AS T
 WHERE TotalProdutos > 50;
@@ -110,30 +113,30 @@ WHERE TotalProdutos > 50;
 --     igual ao UnitPrice de algum produto da marca 'Contoso'.
 
 SELECT * FROM DimProduct
-WHERE UnitPrice = ANY 
+WHERE 
+  UnitPrice = ANY 
       (
         SELECT UnitPrice
         FROM   DimProduct
         WHERE  BrandName = 'Contoso'
-      )
-
+      );
 
 -- 8️⃣  Usando > ALL, retorne os produtos cujo UnitCost seja
 --     maior que o MAIOR UnitCost dos produtos da cor 'Black'.
 
 SELECT * FROM DimProduct
-WHERE  UnitCost > ALL 
+WHERE 
+  UnitCost > ALL 
       (
         SELECT UnitCost
         FROM   DimProduct
         WHERE  ColorName = 'Black'
-      )
-
+      );
 
 -- 9️⃣  Usando EXISTS, retorne os clientes (CustomerKey, FirstName)
 --     que possuem ao menos uma compra registrada em FactSales.
 
-SELECT CustomerKey, FirstName FROM  DimCustomer
+SELECT CustomerKey, FirstName FROM DimCustomer
 WHERE EXISTS 
         (
           SELECT 1
@@ -150,7 +153,7 @@ WHERE EXISTS
 --     o TERCEIRO maior YearlyIncome.
 --     (Dica: aninhe 3 níveis de MAX com filtro de exclusão)
 
-SELECT 
+SELECT DISTINCT
   CustomerKey, FirstName, LastName, YearlyIncome
 FROM 
   DimCustomer
@@ -179,8 +182,7 @@ AND
               )
     )
 
-
--- ────────────────────────────────────────────────────────────
+-- ───────────────────────────────────────────────────────────
 -- 🔵 BLOCO 5 — CTEs
 -- ────────────────────────────────────────────────────────────
 
@@ -208,8 +210,10 @@ WITH
     SELECT
         StoreKey,
         SUM(SalesAmount) AS TotalVendas
-    FROM   FactSales
-    GROUP BY StoreKey
+    FROM 
+      FactSales
+    GROUP BY 
+      StoreKey
 )
 
 SELECT * FROM vendas_por_loja WHERE  TotalVendas > 1000000;

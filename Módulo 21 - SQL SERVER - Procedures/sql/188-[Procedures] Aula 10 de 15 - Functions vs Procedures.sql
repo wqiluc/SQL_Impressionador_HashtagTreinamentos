@@ -26,7 +26,7 @@
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 */
 
-USE BD_Procedures
+USE BD_Procedures;
 
 -- ────────────────────────────────────────────────────────────
 -- 🏋️ Exemplo prático
@@ -34,7 +34,7 @@ USE BD_Procedures
 
 -- Procedure com parâmetro de SAÍDA (OUTPUT) - algo que uma
 -- function NUNCA consegue fazer
-CREATE PROCEDURE sp_ContarContratosDoCliente
+CREATE OR ALTER PROCEDURE sp_ContarContratosDoCliente
    @ID_Cliente INT,
    @Total      INT OUTPUT
 AS

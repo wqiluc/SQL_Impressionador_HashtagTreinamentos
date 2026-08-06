@@ -14,28 +14,31 @@
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 */
 
-USE BD_Procedures
+USE BD_Procedures;
 
 -- ────────────────────────────────────────────────────────────
 -- 🏋️ Exemplo prático
 -- ────────────────────────────────────────────────────────────
 
-CREATE PROCEDURE sp_ContratosPorStatus
+CREATE OR ALTER PROCEDURE sp_ContratosPorStatus
    @Status VARCHAR(20) = 'Ativo'
 AS
 BEGIN
-   SELECT
-      c.ID_Contrato,
-      cli.Nome AS Cliente,
-      c.ValorContrato,
-      c.Status
-   FROM fContratos c
-   JOIN dCliente cli ON cli.ID_Cliente = c.ID_Cliente
-   WHERE c.Status = @Status
+   SELECT DISTINCT
+      c.ID_Contrato AS "ID do Contrato",
+      cli.Nome AS "Cliente",
+      c.ValorContrato AS "Valor do Contrato",
+      c.Status AS "Status"
+   FROM 
+      fContratos c
+   JOIN 
+      dCliente cli ON cli.ID_Cliente = c.ID_Cliente
+   WHERE 
+      c.Status = @Status
 END
 
 -- 1️⃣  Sem informar o parâmetro -> usa o DEFAULT ('Ativo')
-EXEC sp_ContratosPorStatus
+EXEC sp_ContratosPorStatus;
 
 -- 2️⃣  Informando explicitamente um valor diferente do default
-EXEC sp_ContratosPorStatus @Status = 'Cancelado'
+EXEC sp_ContratosPorStatus @Status = 'Cancelado';

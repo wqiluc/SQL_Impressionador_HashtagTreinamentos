@@ -14,13 +14,13 @@
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 */
 
-USE BD_Procedures
+USE BD_Procedures;
 
 -- ────────────────────────────────────────────────────────────
 -- 🏋️ Exemplo prático
 -- ────────────────────────────────────────────────────────────
 
-CREATE PROCEDURE sp_CadastrarContrato
+CREATE OR ALTER PROCEDURE sp_CadastrarContrato
    @NomeCliente   VARCHAR(100),
    @CPFCliente    CHAR(11),
    @ID_Gerente    INT,
@@ -87,5 +87,5 @@ EXEC sp_CadastrarContrato
    @ID_Gerente = 999,
    @ValorContrato = 1000.00
 
-SELECT * FROM dCliente
-SELECT * FROM fContratos
+SELECT * FROM dCliente;
+SELECT * FROM fContratos;

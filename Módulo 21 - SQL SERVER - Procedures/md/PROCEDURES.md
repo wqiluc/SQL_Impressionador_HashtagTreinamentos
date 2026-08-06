@@ -1,5 +1,6 @@
 <h1 align="center">
   ⚙️ Procedures <br>
+  <img src="../img/procedures.jpeg" alt="procedures logo" width="510"> <br>
   <img src="https://img.shields.io/badge/-CREATE%20PROCEDURE-14b8a6?style=flat-square"/>
 </h1>
 

@@ -34,7 +34,7 @@
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 */
 
-USE BD_Procedures
+USE BD_Procedures;
 
 -- ────────────────────────────────────────────────────────────
 -- 🏋️ Exemplo prático
@@ -43,4 +43,4 @@ USE BD_Procedures
 -- Consultando as procedures já criadas no banco (procedures do
 -- usuário, sem contar as procedures internas do sistema)
 SELECT name, create_date, modify_date
-FROM sys.procedures
+FROM sys.procedures;

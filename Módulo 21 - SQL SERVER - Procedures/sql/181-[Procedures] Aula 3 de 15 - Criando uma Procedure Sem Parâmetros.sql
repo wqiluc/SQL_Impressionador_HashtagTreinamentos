@@ -14,7 +14,7 @@
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 */
 
-USE BD_Procedures
+USE BD_Procedures;
 
 -- ────────────────────────────────────────────────────────────
 -- 🏋️ Exemplo prático
@@ -23,20 +23,23 @@ USE BD_Procedures
 CREATE PROCEDURE sp_ListarContratosAtivos
 AS
 BEGIN
-   SELECT
-      c.ID_Contrato,
-      cli.Nome AS Cliente,
-      ger.Nome AS Gerente,
-      c.ValorContrato,
-      c.DataContrato
+   SELECT DISTINCT
+      c.ID_Contrato AS "ID do Contrato",
+      cli.Nome AS "Cliente",
+      ger.Nome AS "Gerente",
+      c.ValorContrato AS "Valor do Contrato",
+      c.DataContrato AS "Data do Contrato"
    FROM fContratos c
-   JOIN dCliente cli ON cli.ID_Cliente = c.ID_Cliente
-   JOIN dGerente ger ON ger.ID_Gerente = c.ID_Gerente
-   WHERE c.Status = 'Ativo'
+   JOIN 
+      dCliente cli ON cli.ID_Cliente = c.ID_Cliente
+   JOIN 
+      dGerente ger ON ger.ID_Gerente = c.ID_Gerente
+   WHERE 
+      c.Status = 'Ativo'
 END
 
 -- Executando a procedure
-EXEC sp_ListarContratosAtivos
+EXEC sp_ListarContratosAtivos;
 
 -- Forma alternativa de executar
-EXECUTE sp_ListarContratosAtivos
+EXECUTE sp_ListarContratosAtivos;

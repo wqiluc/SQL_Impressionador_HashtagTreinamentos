@@ -15,29 +15,34 @@
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 */
 
-USE BD_Procedures
+USE BD_Procedures;
+
+SELECT * FROM fContratos;
 
 -- ────────────────────────────────────────────────────────────
 -- 🏋️ Exemplo prático
 -- ────────────────────────────────────────────────────────────
 
-CREATE PROCEDURE sp_ContratosPorCliente
+CREATE OR ALTER PROCEDURE sp_ContratosPorCliente
    @ID_Cliente INT
 AS
 BEGIN
-   SELECT
-      c.ID_Contrato,
-      cli.Nome AS Cliente,
-      c.ValorContrato,
-      c.DataContrato,
-      c.Status
-   FROM fContratos c
-   JOIN dCliente cli ON cli.ID_Cliente = c.ID_Cliente
-   WHERE c.ID_Cliente = @ID_Cliente
+   SELECT DISTINCT
+      c.ID_Contrato AS "ID do Contrato",
+      cli.Nome AS "Cliente",
+      c.ValorContrato AS "Valor do Contrato",
+      c.DataContrato AS "Data do Contrato",
+      c.Status AS "Status"
+   FROM 
+      fContratos c
+   JOIN 
+      dCliente cli ON cli.ID_Cliente = c.ID_Cliente
+   WHERE 
+      c.ID_Cliente = @ID_Cliente
 END
 
 -- 1️⃣  Passando o valor de forma posicional
-EXEC sp_ContratosPorCliente 1
+EXEC sp_ContratosPorCliente 1;
 
 -- 2️⃣  Passando o valor de forma nomeada (mais legível)
-EXEC sp_ContratosPorCliente @ID_Cliente = 2
+EXEC sp_ContratosPorCliente @ID_Cliente = 2;

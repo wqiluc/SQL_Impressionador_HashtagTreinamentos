@@ -5,10 +5,10 @@
 
 /*
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-📚 CONCEITO — Por que criar Procedures
+📚 CONCEITO — Por que criar Procedures?
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-  Uma STORED PROCEDURE é um bloco de comandos T-SQL salvo no banco
+  Uma STORED PROCEDURE é um bloco de comandos SQL salvo no banco
   de dados, com um nome, que pode ser executado quantas vezes for
   preciso - como uma "função" para o banco, mas com muito mais
   liberdade: pode executar SELECT, INSERT, UPDATE, DELETE,
@@ -37,21 +37,24 @@
 CREATE DATABASE BD_Procedures
 GO
 
-USE BD_Procedures
+USE BD_Procedures;
 GO
 
-CREATE TABLE dCliente(
+CREATE TABLE dCliente
+(
    ID_Cliente INT IDENTITY(1,1) PRIMARY KEY,
    Nome       VARCHAR(100) NOT NULL,
    CPF        CHAR(11) NOT NULL UNIQUE
 )
 
-CREATE TABLE dGerente(
+CREATE TABLE dGerente
+(
    ID_Gerente INT IDENTITY(1,1) PRIMARY KEY,
    Nome       VARCHAR(100) NOT NULL
 )
 
-CREATE TABLE fContratos(
+CREATE TABLE fContratos
+(
    ID_Contrato   INT IDENTITY(1,1) PRIMARY KEY,
    ID_Cliente    INT NOT NULL REFERENCES dCliente(ID_Cliente),
    ID_Gerente    INT NOT NULL REFERENCES dGerente(ID_Gerente),

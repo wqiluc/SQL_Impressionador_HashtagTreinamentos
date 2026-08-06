@@ -1,6 +1,7 @@
 -- ============================================================
 -- 🗄️  SQL Server  |  📦 Módulo 21 — Procedures
--- 📖 Aula 7 de 15  |  Criando uma Procedure mais Complexa para Cadastro de Contratos - Explicação
+-- 📖 Aula 7 de 15  |  Criando uma Procedure mais Complexa para Cadastro de Contratos - 
+-- Explicação
 -- ============================================================
 
 /*
@@ -32,7 +33,7 @@
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 */
 
-USE BD_Procedures
+USE BD_Procedures;
 
 -- ────────────────────────────────────────────────────────────
 -- 🏋️ Exemplo prático
@@ -41,4 +42,4 @@ USE BD_Procedures
 -- SCOPE_IDENTITY() devolve o último valor de IDENTITY gerado na
 -- MESMA sessão e no MESMO escopo (mais seguro que @@IDENTITY,
 -- que pode pegar o IDENTITY de uma trigger disparada por engano)
-SELECT SCOPE_IDENTITY() AS UltimoIdentityGerado
+SELECT SCOPE_IDENTITY() AS UltimoIdentityGerado;

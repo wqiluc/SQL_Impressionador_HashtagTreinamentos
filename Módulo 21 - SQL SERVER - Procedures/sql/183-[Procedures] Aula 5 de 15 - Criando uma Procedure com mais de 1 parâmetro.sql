@@ -13,29 +13,36 @@
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 */
 
-USE BD_Procedures
+USE BD_Procedures;
 
 -- ────────────────────────────────────────────────────────────
 -- 🏋️ Exemplo prático
 -- ────────────────────────────────────────────────────────────
 
-CREATE PROCEDURE sp_ContratosPorPeriodo
+CREATE OR ALTER PROCEDURE sp_ContratosPorPeriodo
    @DataInicio DATE,
-   @DataFim    DATE
+   @DataFim DATE
 AS
 BEGIN
-   SELECT
-      c.ID_Contrato,
-      cli.Nome AS Cliente,
-      c.ValorContrato,
-      c.DataContrato
-   FROM fContratos c
-   JOIN dCliente cli ON cli.ID_Cliente = c.ID_Cliente
-   WHERE c.DataContrato BETWEEN @DataInicio AND @DataFim
+   SELECT DISTINCT
+      c.ID_Contrato AS "ID do Contrato",
+      cli.Nome AS "Cliente",
+      c.ValorContrato AS "Valor do Contrato",
+      c.DataContrato AS "Data do Contrato"
+   FROM 
+      fContratos c
+   JOIN 
+      dCliente cli ON cli.ID_Cliente = c.ID_Cliente
+   WHERE 
+      c.DataContrato 
+      BETWEEN 
+         @DataInicio 
+      AND 
+         @DataFim
 END
 
 -- 1️⃣  Passando os valores de forma posicional (respeita a ordem declarada)
-EXEC sp_ContratosPorPeriodo '2026-01-01', '2026-12-31'
+EXEC sp_ContratosPorPeriodo '2026-01-01', '2026-12-31';
 
 -- 2️⃣  Passando os valores de forma nomeada (ordem não importa mais)
-EXEC sp_ContratosPorPeriodo @DataFim = '2026-12-31', @DataInicio = '2026-01-01'
+EXEC sp_ContratosPorPeriodo @DataFim = '2026-12-31', @DataInicio = '2026-01-01';

@@ -16,7 +16,7 @@
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 */
 
-USE BD_PivotTable
+USE BD_PivotTable;
 
 -- ────────────────────────────────────────────────────────────
 -- 🏋️ Exemplo prático
@@ -24,11 +24,13 @@ USE BD_PivotTable
 
 -- 1️⃣  Ordenando as linhas por total vendido no Q4, do maior para o menor
 SELECT Loja, [Q1], [Q2], [Q3], [Q4]
-FROM (
+FROM 
+(
    SELECT Loja, Trimestre, ValorVenda
    FROM Vendas
 ) AS Origem
-PIVOT (
+PIVOT 
+(
    SUM(ValorVenda)
    FOR Trimestre IN ([Q1], [Q2], [Q3], [Q4])
 ) AS TabelaPivotada
@@ -36,12 +38,14 @@ ORDER BY [Q4] DESC
 
 -- 2️⃣  Invertendo a ordem das colunas (do Q4 para o Q1)
 SELECT Loja, [Q4], [Q3], [Q2], [Q1]
-FROM (
+FROM 
+(
    SELECT Loja, Trimestre, ValorVenda
    FROM Vendas
 ) AS Origem
-PIVOT (
+PIVOT 
+(
    SUM(ValorVenda)
    FOR Trimestre IN ([Q4], [Q3], [Q2], [Q1])
 ) AS TabelaPivotada
-ORDER BY Loja
+ORDER BY Loja;

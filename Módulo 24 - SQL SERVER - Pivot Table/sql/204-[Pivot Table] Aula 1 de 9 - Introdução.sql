@@ -18,7 +18,7 @@
   NOVAS COLUNAS, aplicando uma função de agregação nos valores.
 
   Neste módulo vamos ver:
-  1. O que são Pivot Tables
+  1. O que são Pivot Tables?
   2. Criando uma Pivot Table
   3. Adicionando grupos de linha
   4. Ordenando linhas e colunas
@@ -31,13 +31,16 @@
 -- 🏋️ Exemplo prático
 -- ────────────────────────────────────────────────────────────
 
+IF NOT EXISTS (SELECT * FROM sys.databases WHERE name = 'BD_PivotTable');
+
 CREATE DATABASE BD_PivotTable
 GO
 
-USE BD_PivotTable
+USE BD_PivotTable;
 GO
 
-CREATE TABLE Vendas(
+CREATE TABLE Vendas
+(
    ID_Venda   INT IDENTITY(1,1) PRIMARY KEY,
    Loja       VARCHAR(50) NOT NULL,
    Regiao     VARCHAR(50) NOT NULL,
@@ -61,4 +64,4 @@ VALUES
    ('Loja Sul',    'Sul',     'Carla',  'Q3', 16200),
    ('Loja Sul',    'Sul',     'Carla',  'Q4', 17800)
 
-SELECT * FROM Vendas
+SELECT * FROM Vendas;

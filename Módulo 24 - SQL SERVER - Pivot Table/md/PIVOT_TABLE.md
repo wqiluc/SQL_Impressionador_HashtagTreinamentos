@@ -1,6 +1,6 @@
 <h1 align="center">
   🔃 Pivot Table <br>
-  <img src="../img/" alt="PIVOT TABLES" width="500"> <br>
+  <img src="../img/pivot_table.jpeg" alt="Pivot Logo" width="490"> <br>
   <img src="https://img.shields.io/badge/-PIVOT%20..%20SQL%20Din%C3%A2mico-14b8a6?style=flat-square"/>
 </h1>
 

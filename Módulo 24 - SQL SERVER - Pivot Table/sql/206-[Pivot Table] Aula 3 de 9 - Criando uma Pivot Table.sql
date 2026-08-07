@@ -16,18 +16,20 @@
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 */
 
-USE BD_PivotTable
+USE BD_PivotTable;
 
 -- ────────────────────────────────────────────────────────────
 -- 🏋️ Exemplo prático
 -- ────────────────────────────────────────────────────────────
 
 SELECT Loja, [Q1], [Q2], [Q3], [Q4]
-FROM (
+FROM 
+(
    SELECT Loja, Trimestre, ValorVenda
    FROM Vendas
 ) AS Origem
-PIVOT (
+PIVOT 
+(
    SUM(ValorVenda)
    FOR Trimestre IN ([Q1], [Q2], [Q3], [Q4])
-) AS TabelaPivotada
+) AS TabelaPivotada;

@@ -1,6 +1,6 @@
 -- ============================================================
 -- 🗄️  SQL Server  |  📦 Módulo 24 — Pivot Table
--- 📖 Aula 2 de 9  |  O que são Pivot Tables
+-- 📖 Aula 2 de 9  |  O que são Pivot Tables?
 -- ============================================================
 
 /*
@@ -12,10 +12,11 @@
 
      SELECT colunas_de_grupo, [valor1], [valor2], ...
      FROM (SELECT colunas_necessárias FROM tabela) AS Origem
-     PIVOT (
+     PIVOT 
+      (
         FUNÇÃO_AGREGADORA(coluna_de_valor)
         FOR coluna_a_transformar_em_colunas IN ([valor1], [valor2], ...)
-     ) AS TabelaPivotada
+      ) AS TabelaPivotada
 
   Repare que o PIVOT sempre trabalha em cima de uma SUBQUERY
   (aqui chamada de "Origem"), e que os valores que vão virar
@@ -24,7 +25,7 @@
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 */
 
-USE BD_PivotTable
+USE BD_PivotTable;
 
 -- ────────────────────────────────────────────────────────────
 -- 🏋️ Exemplo prático
@@ -38,14 +39,14 @@ ORDER BY Loja, Trimestre
 
 -- 2️⃣  A mesma informação, "deitada": uma linha por Loja, uma
 --     coluna por Trimestre (prévia do que o PIVOT vai fazer)
-SELECT
-   Loja,
-   SUM(CASE WHEN Trimestre = 'Q1' THEN ValorVenda END) AS Q1,
-   SUM(CASE WHEN Trimestre = 'Q2' THEN ValorVenda END) AS Q2,
-   SUM(CASE WHEN Trimestre = 'Q3' THEN ValorVenda END) AS Q3,
-   SUM(CASE WHEN Trimestre = 'Q4' THEN ValorVenda END) AS Q4
+SELECT DISTINCT
+   Loja AS "Loja",
+   SUM(CASE WHEN Trimestre = 'Q1' THEN ValorVenda END) AS "Q1",
+   SUM(CASE WHEN Trimestre = 'Q2' THEN ValorVenda END) AS "Q2",
+   SUM(CASE WHEN Trimestre = 'Q3' THEN ValorVenda END) AS "Q3",
+   SUM(CASE WHEN Trimestre = 'Q4' THEN ValorVenda END) AS "Q4"
 FROM Vendas
-GROUP BY Loja
+GROUP BY Loja;
 
 -- O PIVOT faz exatamente isso (linha 2), só que com uma sintaxe
 -- própria, mais direta - vista na próxima aula

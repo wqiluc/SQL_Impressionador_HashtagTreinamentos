@@ -19,37 +19,39 @@
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 */
 
-USE BD_PivotTable
+USE BD_PivotTable;
 
 -- ────────────────────────────────────────────────────────────
 -- 🏋️ Exemplo prático
 -- ────────────────────────────────────────────────────────────
 
 DECLARE @ListaColunas NVARCHAR(MAX)
-DECLARE @SQLDinamico  NVARCHAR(MAX)
+DECLARE @SQLDinamico NVARCHAR(MAX)
 
 -- 1️⃣  Lista de colunas dinâmica (igual à Parte 1)
 SELECT @ListaColunas = STRING_AGG(QUOTENAME(Trimestre), ',')
    WITHIN GROUP (ORDER BY Trimestre)
-FROM (SELECT DISTINCT Trimestre FROM Vendas) AS Trimestres
+FROM (SELECT DISTINCT Trimestre AS "Trimestre" FROM Vendas);
 
 -- 2️⃣  Montando o texto da consulta PIVOT usando a lista dinâmica
 SET @SQLDinamico = N'
 SELECT Loja, ' + @ListaColunas + N'
-FROM (
+FROM 
+(
    SELECT Loja, Trimestre, ValorVenda
    FROM Vendas
 ) AS Origem
-PIVOT (
+PIVOT 
+(
    SUM(ValorVenda)
    FOR Trimestre IN (' + @ListaColunas + N')
 ) AS TabelaPivotada
 ORDER BY Loja'
 
 -- Conferindo o texto gerado antes de executar
-PRINT @SQLDinamico
+PRINT @SQLDinamico;
 
 -- 3️⃣  Executando o SQL dinâmico
-EXEC sp_executesql @SQLDinamico
+EXEC sp_executesql @SQLDinamico;
 
 -- Agora Q5 aparece automaticamente como coluna, sem alterar a query

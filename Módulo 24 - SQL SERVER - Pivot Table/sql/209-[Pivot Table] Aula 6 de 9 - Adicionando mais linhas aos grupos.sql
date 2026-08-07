@@ -15,19 +15,26 @@
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 */
 
-USE BD_PivotTable
+USE BD_PivotTable;
 
 -- ────────────────────────────────────────────────────────────
 -- 🏋️ Exemplo prático
 -- ────────────────────────────────────────────────────────────
 
 SELECT Regiao, Loja, Vendedor, [Q1], [Q2], [Q3], [Q4]
-FROM (
-   SELECT Loja, Regiao, Vendedor, Trimestre, ValorVenda
+FROM 
+(
+   SELECT DISTINCT
+   Loja AS "Loja", 
+   Regiao AS "Região", 
+   Vendedor AS "Vendedor", 
+   Trimestre AS "Trimestre", 
+   ValorVenda AS "Valor da Venda"
    FROM Vendas
 ) AS Origem
-PIVOT (
+PIVOT
+(
    SUM(ValorVenda)
    FOR Trimestre IN ([Q1], [Q2], [Q3], [Q4])
 ) AS TabelaPivotada
-ORDER BY Regiao, Loja, Vendedor
+ORDER BY Regiao, Loja, Vendedor;

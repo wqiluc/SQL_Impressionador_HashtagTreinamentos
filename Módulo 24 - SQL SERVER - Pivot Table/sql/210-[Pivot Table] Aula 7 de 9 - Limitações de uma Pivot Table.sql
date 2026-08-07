@@ -22,7 +22,7 @@
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 */
 
-USE BD_PivotTable
+USE BD_PivotTable;
 
 -- ────────────────────────────────────────────────────────────
 -- 🏋️ Exemplo prático
@@ -35,14 +35,16 @@ VALUES ('Loja Centro', 'Sudeste', 'Marcus', 'Q5', 5000)
 -- O PIVOT abaixo continua igual - Q5 simplesmente não aparece em
 -- lugar nenhum, nem soma no total de nenhuma coluna existente
 SELECT Loja, [Q1], [Q2], [Q3], [Q4]
-FROM (
+FROM 
+(
    SELECT Loja, Trimestre, ValorVenda
    FROM Vendas
 ) AS Origem
-PIVOT (
+PIVOT 
+(
    SUM(ValorVenda)
    FOR Trimestre IN ([Q1], [Q2], [Q3], [Q4])
 ) AS TabelaPivotada
 
 -- Removendo o dado de teste
-DELETE FROM Vendas WHERE Trimestre = 'Q5'
+DELETE FROM Vendas WHERE Trimestre = 'Q5';

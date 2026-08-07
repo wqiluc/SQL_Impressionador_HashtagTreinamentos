@@ -15,7 +15,7 @@
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 */
 
-USE BD_PivotTable
+USE BD_PivotTable;
 
 -- ────────────────────────────────────────────────────────────
 -- 🏋️ Exemplo prático
@@ -23,11 +23,13 @@ USE BD_PivotTable
 
 -- Adicionando Regiao como um segundo grupo de linha, junto com Loja
 SELECT Regiao, Loja, [Q1], [Q2], [Q3], [Q4]
-FROM (
+FROM 
+(
    SELECT Loja, Regiao, Trimestre, ValorVenda
    FROM Vendas
 ) AS Origem
-PIVOT (
+PIVOT 
+(
    SUM(ValorVenda)
    FOR Trimestre IN ([Q1], [Q2], [Q3], [Q4])
-) AS TabelaPivotada
+) AS TabelaPivotada;

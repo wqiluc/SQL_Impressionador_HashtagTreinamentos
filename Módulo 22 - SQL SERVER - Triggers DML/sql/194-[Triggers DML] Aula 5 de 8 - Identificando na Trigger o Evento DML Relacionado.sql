@@ -15,7 +15,7 @@
 
   O truque é combinar a presença de linhas em inserted/deleted:
 
-  | Evento | inserted tem linhas? | deleted tem linhas? |
+  | Evento | inserted tem linhas?   | deleted tem linhas?    |
   |--------|------------------------|------------------------|
   | INSERT | Sim                    | Não                    |
   | UPDATE | Sim                    | Sim                    |
@@ -23,13 +23,13 @@
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 */
 
-USE BD_Triggers
+USE BD_Triggers;
 
 -- ────────────────────────────────────────────────────────────
 -- 🏋️ Exemplo prático
 -- ────────────────────────────────────────────────────────────
 
-DROP TRIGGER trg_Produto_Debug
+DROP TRIGGER trg_Produto_Debug;
 
 CREATE TRIGGER trg_Produto_Log
 ON Produto
@@ -38,9 +38,11 @@ AS
 BEGIN
    DECLARE @Operacao VARCHAR(10)
 
-   IF EXISTS (SELECT 1 FROM inserted) AND EXISTS (SELECT 1 FROM deleted)
+   IF 
+      EXISTS (SELECT 1 FROM inserted) AND EXISTS (SELECT 1 FROM deleted)
       SET @Operacao = 'UPDATE'
-   ELSE IF EXISTS (SELECT 1 FROM inserted)
+   ELSE IF 
+      EXISTS (SELECT 1 FROM inserted)
       SET @Operacao = 'INSERT'
    ELSE
       SET @Operacao = 'DELETE'
@@ -58,4 +60,4 @@ INSERT INTO Produto(Nome, Estoque, PrecoUnitario) VALUES ('Webcam', 20, 220.00)
 UPDATE Produto SET Estoque = Estoque - 1 WHERE Nome = 'Webcam'
 DELETE FROM Produto WHERE Nome = 'Webcam'
 
-SELECT * FROM ProdutoLog
+SELECT * FROM ProdutoLog;

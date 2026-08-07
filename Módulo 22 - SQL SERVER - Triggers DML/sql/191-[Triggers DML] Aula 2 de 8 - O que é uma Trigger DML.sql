@@ -25,7 +25,8 @@
 
      CREATE TRIGGER nome_da_trigger
      ON tabela
-     AFTER INSERT, UPDATE, DELETE       -- ou: INSTEAD OF INSERT, UPDATE, DELETE
+     AFTER INSERT, UPDATE, DELETE       
+     -- ou: INSTEAD OF INSERT, UPDATE, DELETE
      AS
      BEGIN
         -- comandos T-SQL
@@ -36,16 +37,16 @@
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 */
 
-USE BD_Triggers
+USE BD_Triggers;
 
 -- ────────────────────────────────────────────────────────────
 -- 🏋️ Exemplo prático
 -- ────────────────────────────────────────────────────────────
 
 -- Consultando as triggers já criadas no banco
-SELECT
+SELECT DISTINCT
    t.name AS Trigger_,
    OBJECT_NAME(t.parent_id) AS Tabela,
    t.is_instead_of_trigger,
    t.is_disabled
-FROM sys.triggers t
+FROM sys.triggers t;

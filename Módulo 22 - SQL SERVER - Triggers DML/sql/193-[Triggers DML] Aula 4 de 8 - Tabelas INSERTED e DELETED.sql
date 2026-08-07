@@ -23,17 +23,17 @@
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 */
 
-USE BD_Triggers
+USE BD_Triggers;
 
 -- ────────────────────────────────────────────────────────────
 -- 🏋️ Exemplo prático
 -- ────────────────────────────────────────────────────────────
 
-DROP TRIGGER trg_Produto_AfterInsert
+DROP TRIGGER trg_Produto_AfterInsert;
 
 -- Trigger que reage aos três eventos e só exibe (PRINT) o
 -- conteúdo de inserted/deleted, para fins didáticos
-CREATE TRIGGER trg_Produto_Debug
+CREATE OR ALTER TRIGGER trg_Produto_Debug
 ON Produto
 AFTER INSERT, UPDATE, DELETE
 AS
@@ -53,4 +53,4 @@ VALUES ('Headset', 30, 350.00)
 UPDATE Produto SET Estoque = Estoque - 5 WHERE Nome = 'Headset'
 
 -- 3️⃣  DELETE -> só popula "deleted"
-DELETE FROM Produto WHERE Nome = 'Headset'
+DELETE FROM Produto WHERE Nome = 'Headset';

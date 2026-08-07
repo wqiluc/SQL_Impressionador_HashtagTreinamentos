@@ -32,7 +32,7 @@
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 */
 
-USE BD_TriggersDDL
+USE BD_TriggersDDL;
 
 -- ────────────────────────────────────────────────────────────
 -- 🏋️ Exemplo prático
@@ -41,4 +41,5 @@ USE BD_TriggersDDL
 -- Consultando as triggers DDL já criadas no banco atual
 SELECT name, parent_class_desc, is_disabled
 FROM sys.triggers
-WHERE parent_class = 0 -- 0 = trigger de banco de dados (DDL)
+WHERE parent_class = 0;
+ -- 0 = trigger de banco de dados (DDL)

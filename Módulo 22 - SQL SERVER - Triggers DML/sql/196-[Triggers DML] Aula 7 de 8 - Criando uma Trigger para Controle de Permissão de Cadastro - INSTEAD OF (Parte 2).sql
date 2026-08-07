@@ -20,29 +20,31 @@
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 */
 
-USE BD_Triggers
+USE BD_Triggers;
 
 -- ────────────────────────────────────────────────────────────
 -- 🏋️ Exemplo prático
 -- ────────────────────────────────────────────────────────────
 
-DROP TRIGGER trg_Funcionario_ValidarAutorizacao
+DROP TRIGGER trg_Funcionario_ValidarAutorizacao;
 
-CREATE TRIGGER trg_Funcionario_ValidarAutorizacao
+CREATE OR ALTER TRIGGER trg_Funcionario_ValidarAutorizacao
 ON Funcionario
 INSTEAD OF INSERT
 AS
 BEGIN
    -- 1️⃣  Bloqueia quem não informou um código válido
-   IF EXISTS (
+   IF EXISTS 
+   (
       SELECT 1
       FROM inserted i
-      WHERE NOT EXISTS (
+      WHERE NOT EXISTS 
+      (
          SELECT 1 FROM CodigosAutorizacaoRH c WHERE c.Codigo = i.CodigoAutorizacao
       )
    )
    BEGIN
-      RAISERROR('Código de autorização inválido - cadastro bloqueado', 16, 1)
+      RAISERROR('Código de autorização inválido ❌ - cadastro bloqueado', 16, 1)
       RETURN
    END
 

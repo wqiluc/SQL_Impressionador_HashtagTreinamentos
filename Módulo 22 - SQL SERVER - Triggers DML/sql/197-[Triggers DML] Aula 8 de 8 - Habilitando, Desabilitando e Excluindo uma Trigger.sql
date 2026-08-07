@@ -18,7 +18,7 @@
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 */
 
-USE BD_Triggers
+USE BD_Triggers;
 
 -- ────────────────────────────────────────────────────────────
 -- 🏋️ Exemplo prático
@@ -39,12 +39,13 @@ ENABLE TRIGGER trg_Produto_Log ON Produto
 INSERT INTO Produto(Nome, Estoque, PrecoUnitario)
 VALUES ('Scanner', 8, 430.00)
 
-SELECT * FROM ProdutoLog -- já tem log do Scanner
+SELECT * FROM ProdutoLog;
+ -- já tem log do Scanner
 
 -- 3️⃣  Consultando o status (habilitada/desabilitada) das triggers
 SELECT name, is_disabled FROM sys.triggers
 
 -- 4️⃣  Excluindo definitivamente uma trigger
-DROP TRIGGER trg_Funcionario_ValidarAutorizacao
+DROP TRIGGER trg_Funcionario_ValidarAutorizacao;
 
-SELECT name FROM sys.triggers
+SELECT name FROM sys.triggers;

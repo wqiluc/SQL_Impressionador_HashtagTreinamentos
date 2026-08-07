@@ -1,5 +1,6 @@
 <h1 align="center">
   ⚡ Triggers DML <br>
+  <img src="../img/TRIGGERS_DML.jpeg" alt="TRIGGERS DML" width="500"> <br>
   <img src="https://img.shields.io/badge/-AFTER%20..%20INSTEAD%20OF-14b8a6?style=flat-square"/>
 </h1>
 
@@ -32,10 +33,11 @@
 ```sql
 CREATE TRIGGER nome_da_trigger
 ON tabela
-AFTER INSERT, UPDATE, DELETE      -- ou: INSTEAD OF INSERT, UPDATE, DELETE
+AFTER INSERT, UPDATE, DELETE      
+-- ou: INSTEAD OF INSERT, UPDATE, DELETE
 AS
 BEGIN
-    -- comandos T-SQL
+    -- comandos SQL
 END
 ```
 
@@ -97,9 +99,11 @@ ON Funcionario
 INSTEAD OF INSERT
 AS
 BEGIN
-    IF EXISTS (
+    IF EXISTS 
+    (
         SELECT 1 FROM inserted i
-        WHERE NOT EXISTS (
+        WHERE NOT EXISTS 
+        (
             SELECT 1 FROM CodigosAutorizacaoRH c WHERE c.Codigo = i.CodigoAutorizacao
         )
     )
@@ -121,12 +125,15 @@ END
 <img src="https://img.shields.io/badge/-Gerenciamento-475569?style=flat-square"/></h2>
 
 ```sql
-DISABLE TRIGGER trg_Produto_Log ON Produto  -- desliga temporariamente
-ENABLE TRIGGER trg_Produto_Log ON Produto   -- liga de novo
-DROP TRIGGER trg_Produto_Log                -- remove definitivamente
+DISABLE TRIGGER trg_Produto_Log ON Produto  
+-- desliga temporariamente
+ENABLE TRIGGER trg_Produto_Log ON Produto   
+-- liga de novo
+DROP TRIGGER trg_Produto_Log                
+-- remove definitivamente
 
 -- Consultando as triggers do banco e seu status
-SELECT name, is_instead_of_trigger, is_disabled FROM sys.triggers
+SELECT name, is_instead_of_trigger, is_disabled FROM sys.triggers;
 ```
 
 <h2 align="center">📋 Resumo <br>

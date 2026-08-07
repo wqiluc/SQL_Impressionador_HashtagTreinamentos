@@ -61,6 +61,10 @@ INSERT INTO Carro(id_carro, placa, modelo, tipo, valor) VALUES
 
 USE ContosoRetailDW;
 
+SELECT * FROM DimProduct;
+SELECT * FROM DimProductSubcategory;
+SELECT * FROM DimProductCategory;
+
 -- ==============================================================================
 -- 🏋️ Exercício 1: Total de produtos por categoria, filtrando por marca
 -- ==============================================================================

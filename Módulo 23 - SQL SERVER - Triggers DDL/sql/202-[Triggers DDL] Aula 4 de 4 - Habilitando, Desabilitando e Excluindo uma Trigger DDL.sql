@@ -17,32 +17,34 @@
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 */
 
-USE BD_TriggersDDL
+USE BD_TriggersDDL;
 
 -- ────────────────────────────────────────────────────────────
 -- 🏋️ Exemplo prático
 -- ────────────────────────────────────────────────────────────
 
 -- 1️⃣  Desabilitando a trigger de auditoria
-DISABLE TRIGGER trg_LogEstrutura ON DATABASE
+DISABLE TRIGGER trg_LogEstrutura ON DATABASE;
 
 -- Enquanto desabilitada, alterações de estrutura não são registradas
 CREATE TABLE TabelaSemAuditoria(ID INT PRIMARY KEY)
 DROP TABLE TabelaSemAuditoria
 
-SELECT * FROM LogAlteracoesEstrutura -- nenhum registro novo
+SELECT * FROM LogAlteracoesEstrutura;
+-- nenhum registro novo
 
 -- 2️⃣  Reabilitando a trigger
-ENABLE TRIGGER trg_LogEstrutura ON DATABASE
+ENABLE TRIGGER trg_LogEstrutura ON DATABASE;
 
 CREATE TABLE TabelaComAuditoria(ID INT PRIMARY KEY)
 
-SELECT * FROM LogAlteracoesEstrutura -- já aparece o CREATE_TABLE
+SELECT * FROM LogAlteracoesEstrutura;
+-- já aparece o CREATE_TABLE
 
 -- 3️⃣  Consultando o status das triggers DDL do banco
 SELECT name, is_disabled
 FROM sys.triggers
-WHERE parent_class = 0
+WHERE parent_class = 0;
 
 -- 4️⃣  Excluindo definitivamente
-DROP TRIGGER trg_LogEstrutura ON DATABASE
+DROP TRIGGER trg_LogEstrutura ON DATABASE;

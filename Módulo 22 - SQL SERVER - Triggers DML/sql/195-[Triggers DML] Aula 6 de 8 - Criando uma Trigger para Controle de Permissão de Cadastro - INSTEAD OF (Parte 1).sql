@@ -25,20 +25,22 @@
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 */
 
-USE BD_Triggers
+USE BD_Triggers;
 
 -- ────────────────────────────────────────────────────────────
 -- 🏋️ Exemplo prático
 -- ────────────────────────────────────────────────────────────
 
-CREATE TABLE Funcionario(
+CREATE TABLE Funcionario
+(
    ID_Funcionario     INT IDENTITY(1,1) PRIMARY KEY,
    Nome               VARCHAR(100) NOT NULL,
    Salario            DECIMAL(10,2) NOT NULL,
-   CodigoAutorizacao  CHAR(6) NULL -- usado só na hora do INSERT, não fica salvo
+   CodigoAutorizacao  CHAR(6) NULL
 )
 
-CREATE TABLE CodigosAutorizacaoRH(
+CREATE TABLE CodigosAutorizacaoRH
+(
    Codigo CHAR(6) PRIMARY KEY
 )
 
@@ -51,14 +53,15 @@ ON Funcionario
 INSTEAD OF INSERT
 AS
 BEGIN
-   IF EXISTS (
+   IF EXISTS 
+   (
       SELECT 1
       FROM inserted i
       JOIN CodigosAutorizacaoRH c ON c.Codigo = i.CodigoAutorizacao
    )
-      PRINT 'Código válido - cadastro seria realizado (implementado na Parte 2)'
+      PRINT 'Código válido✅ - cadastro seria realizado (implementado na Parte 2)'
    ELSE
-      PRINT 'Código inválido - cadastro seria bloqueado (implementado na Parte 2)'
+      PRINT 'Código inválido❌ - cadastro seria bloqueado (implementado na Parte 2)'
 END
 
 -- Testando: como a trigger é INSTEAD OF e ainda não insere nada
@@ -69,4 +72,5 @@ VALUES ('Rafael Souza', 4500.00, 'RH2026')
 INSERT INTO Funcionario(Nome, Salario, CodigoAutorizacao)
 VALUES ('Cliente Suspeito', 9000.00, 'XXXXXX')
 
-SELECT * FROM Funcionario -- ainda vazia: a Parte 2 vai completar a lógica
+SELECT * FROM Funcionario;
+-- ainda vazia: a Parte 2 vai completar a lógica

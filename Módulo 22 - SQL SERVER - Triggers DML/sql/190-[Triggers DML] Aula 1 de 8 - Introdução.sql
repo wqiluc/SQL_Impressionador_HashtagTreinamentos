@@ -30,20 +30,28 @@
 -- 🏋️ Exemplo prático
 -- ────────────────────────────────────────────────────────────
 
+IF EXISTS (SELECT * FROM sys.databases WHERE name = 'BD_Triggers')
+
+BEGIN
+   DROP DATABASE BD_Triggers
+END
+
 CREATE DATABASE BD_Triggers
 GO
 
 USE BD_Triggers
 GO
 
-CREATE TABLE Produto(
+CREATE TABLE Produto
+(
    ID_Produto     INT IDENTITY(1,1) PRIMARY KEY,
    Nome           VARCHAR(100) NOT NULL,
    Estoque        INT NOT NULL DEFAULT 0,
    PrecoUnitario  DECIMAL(10,2) NOT NULL
 )
 
-CREATE TABLE ProdutoLog(
+CREATE TABLE ProdutoLog
+(
    ID_Log      INT IDENTITY(1,1) PRIMARY KEY,
    ID_Produto  INT,
    Operacao    VARCHAR(10),
@@ -53,4 +61,4 @@ CREATE TABLE ProdutoLog(
 INSERT INTO Produto(Nome, Estoque, PrecoUnitario)
 VALUES ('Teclado', 50, 120.00), ('Mouse', 80, 60.00), ('Monitor', 15, 750.00)
 
-SELECT * FROM Produto
+SELECT * FROM Produto;

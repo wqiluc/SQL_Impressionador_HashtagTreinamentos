@@ -1,5 +1,6 @@
 <h1 align="center">
   🏛️ Triggers DDL <br>
+  <img src="../img/TRIGGERS_DDL.jpeg" alt="Triggers DDL logo" width="490"> <br>
   <img src="https://img.shields.io/badge/-EVENTDATA()-14b8a6?style=flat-square"/>
 </h1>
 

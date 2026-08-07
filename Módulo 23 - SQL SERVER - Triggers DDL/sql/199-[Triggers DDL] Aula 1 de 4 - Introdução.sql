@@ -32,11 +32,12 @@
 CREATE DATABASE BD_TriggersDDL
 GO
 
-USE BD_TriggersDDL
+USE BD_TriggersDDL;
 GO
 
 -- Tabela onde vamos registrar as alterações de estrutura do banco
-CREATE TABLE LogAlteracoesEstrutura(
+CREATE TABLE LogAlteracoesEstrutura
+(
    ID_Log     INT IDENTITY(1,1) PRIMARY KEY,
    Evento     VARCHAR(100),
    ObjetoAlvo VARCHAR(200),
@@ -45,4 +46,4 @@ CREATE TABLE LogAlteracoesEstrutura(
    LoginUsado VARCHAR(100)
 )
 
-SELECT * FROM LogAlteracoesEstrutura
+SELECT * FROM LogAlteracoesEstrutura;

@@ -15,13 +15,13 @@
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 */
 
-USE BD_Triggers
+USE BD_Triggers;
 
 -- ────────────────────────────────────────────────────────────
 -- 🏋️ Exemplo prático
 -- ────────────────────────────────────────────────────────────
 
-CREATE TRIGGER trg_Produto_AfterInsert
+CREATE OR ALTER TRIGGER trg_Produto_AfterInsert
 ON Produto
 AFTER INSERT
 AS
@@ -36,5 +36,5 @@ INSERT INTO Produto(Nome, Estoque, PrecoUnitario)
 VALUES ('Cadeira Gamer', 10, 1200.00)
 
 -- Conferindo que o log foi criado automaticamente
-SELECT * FROM Produto
-SELECT * FROM ProdutoLog
+SELECT * FROM Produto;
+SELECT * FROM ProdutoLog;

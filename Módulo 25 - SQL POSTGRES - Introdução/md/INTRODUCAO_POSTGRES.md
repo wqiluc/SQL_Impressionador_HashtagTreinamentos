@@ -67,6 +67,18 @@
 > 💡 Na prática, a escolha entre os dois raramente é sobre "qual é melhor" e sim sobre **o ecossistema
 > em que o projeto já está inserido** e **o orçamento disponível para licenciamento**.
 
+<h2 align="center">🗃️ O banco de dados Northwind <br>
+<img src="https://img.shields.io/badge/-Banco%20de%20Estudo-16a34a?style=flat-square"/></h2>
+
+<p align="center">
+  <img src="../img/postgres1.png" alt="Diagrama de entidade-relacionamento do banco Northwind Traders" width="800">
+</p>
+
+- A **Northwind Traders** é uma organização fictícia criada pela Microsoft para fins didáticos, que simula a operação de uma empresa de importação e exportação de produtos alimentícios;
+- O banco reúne tabelas de **pedidos** (`orders`, `order_details`), **produtos** (`products`, `categories`, `suppliers`), **clientes** (`customers`), **funcionários** (`employees`) e outras entidades relacionadas — todas ligadas entre si por chaves primárias e estrangeiras, como mostra o diagrama acima;
+- A partir deste módulo, o Northwind substitui os bancos avulsos criados a cada módulo do SQL Server e passa a ser **o banco único usado em todos os exercícios do curso em PostgreSQL**;
+- Ainda nesta introdução, veremos como recriar essa mesma estrutura de tabelas dentro do PostgreSQL, para que os exemplos e exercícios possam ser reproduzidos localmente.
+
 <h2 align="center">⬇️ Como baixar e testar <br>
 <img src="https://img.shields.io/badge/-PostgreSQL-336791?style=flat-square&logo=postgresql&logoColor=white" height="18"/>
 <img src="https://img.shields.io/badge/-Instala%C3%A7%C3%A3o-475569?style=flat-square" height="18"/></h2>
@@ -92,8 +104,20 @@ SELECT version();
 
 6. Crie um banco de dados vazio pelo pgAdmin — ele será usado logo em seguida para criar as tabelas do banco **Northwind**, que passa a ser o banco de estudo do curso a partir deste módulo.
 
+<p align="center">
+  <img src="../img/postgres2.png" alt="SGBD do Postgres dividido em servidor (PostgreSQL Server) e interface (pgAdmin)" width="800">
+</p>
+
+> 🧩 Na prática, o "Postgres" que instalamos não é um programa único: é um **SGBD** composto por duas
+> partes complementares — o **PostgreSQL Server**, que armazena e processa os bancos de dados, e o
+> **pgAdmin**, a interface gráfica usada para escrever e rodar os comandos SQL que se comunicam com esse servidor.
+
 <h2 align="center">🗄️ Conteúdo do Módulo <br>
 <img src="https://img.shields.io/badge/-Tópicos-475569?style=flat-square"/></h2>
+
+<p align="center">
+  <img src="../img/postgres3.png" alt="Lista de tópicos do módulo de PostgreSQL" width="800">
+</p>
 
 | Tópico | Status |
 |--------|--------|

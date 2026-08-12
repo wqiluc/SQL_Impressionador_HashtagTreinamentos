@@ -108,3 +108,6 @@ Este repositório tem como objetivo aprofundar os conhecimentos em <strong>SQL</
   <img src="https://img.shields.io/badge/-GitHub-111827?style=flat-square&logo=github&logoColor=white"/>
   <img src="https://img.shields.io/badge/-GitHub_Desktop-111827?style=flat-square&logo=github&logoColor=purple"/>
 </div>
+
+<h2 align="center">🏆 Certificado: <br>
+<img src="./img/certificado-Lucas-Paguetti-SQL-Impressionador.png" alt="Certificado SQL HashTag Treinamentos" Width="490"></h2>
